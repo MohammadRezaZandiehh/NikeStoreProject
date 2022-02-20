@@ -3,6 +3,7 @@ package com.example.nikestoreproject.data.repo
 import com.example.nikestoreproject.data.Product
 import com.example.nikestoreproject.data.repo.source.ProductDataSource
 import com.example.nikestoreproject.data.repo.source.ProductLocalDataSource
+import com.example.nikestoreproject.services.http.ApiService
 import io.reactivex.Completable
 import io.reactivex.Single
 

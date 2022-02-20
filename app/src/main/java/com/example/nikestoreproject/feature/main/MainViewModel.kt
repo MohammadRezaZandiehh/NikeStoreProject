@@ -1,6 +1,5 @@
-package com.example.feature.main
+package com.example.nikestoreproject.feature.main
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.nikestoreproject.NikeViewModel
 import com.example.nikestoreproject.data.Product
