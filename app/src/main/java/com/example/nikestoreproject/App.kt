@@ -1,13 +1,13 @@
 package com.example.nikestoreproject
 
 import android.app.Application
-import com.example.nikestoreproject.feature.main.MainViewModel
 import com.example.nikestoreproject.data.repo.ProductRepository
 import com.example.nikestoreproject.data.repo.ProductRepositoryImpl
 import com.example.nikestoreproject.data.repo.source.ProductLocalDataSource
 import com.example.nikestoreproject.data.repo.source.ProductRemoteDataSource
 import com.example.nikestoreproject.services.http.ApiService
 import com.example.nikestoreproject.services.http.createApiServiceInstance
+import com.sevenlearn.nikestore.feature.main.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin

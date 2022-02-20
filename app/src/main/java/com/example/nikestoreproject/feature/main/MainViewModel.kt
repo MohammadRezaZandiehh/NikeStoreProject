@@ -1,5 +1,6 @@
-package com.example.nikestoreproject.feature.main
+package com.sevenlearn.nikestore.feature.main
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.nikestoreproject.NikeViewModel
 import com.example.nikestoreproject.data.Product
@@ -32,6 +33,3 @@ class MainViewModel(productRepository: ProductRepository) : NikeViewModel() {
             })
     }
 }
-
-/*data ro pas mide b view      ... tamaaaaaaaaaaaaaaaaaaaaam ...
-* */

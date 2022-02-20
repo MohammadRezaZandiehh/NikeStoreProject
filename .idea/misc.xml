@@ -18,6 +18,11 @@
         <entry key="..\:/Users/mohammad/AndroidStudioProjects/NikeStoreProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/mohammad/AndroidStudioProjects/NikeStoreProject/app/src/main/res/xml/type.xml" value="0.1118659420289855" />
         <entry key="..\:/project/NikeStoreProject/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/project/NikeStoreProject/app/src/main/res/layout/fragment_cart.xml" value="0.1" />
+        <entry key="..\:/project/NikeStoreProject/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/project/NikeStoreProject/app/src/main/res/layout/fragment_main.xml" value="0.25" />
+        <entry key="..\:/project/NikeStoreProject/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/project/NikeStoreProject/app/src/main/res/menu/main_navigation.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

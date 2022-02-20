@@ -15,18 +15,19 @@
             android:layout_height="56dp"/>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <fragment
-        android:id="@+id/fragmentContainer"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.nikestoreproject.feature.main.MainFragment">
+        android:layout_marginBottom="56dp"
+         />
 
-    </fragment>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationMain"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_gravity="bottom"
-        app:menu="@menu/main_navigation" />
+        app:menu="@menu/main_navigation"
+        android:layout_gravity="bottom"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
