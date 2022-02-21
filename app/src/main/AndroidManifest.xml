@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NikeStoreProject">
         <activity
-            android:name="com.example.nikestoreproject.feature.main.MainActivity"
+            android:name="com.sevenlearn.nikestore.feature.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

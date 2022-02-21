@@ -14,9 +14,11 @@ import timber.log.Timber
 class MainViewModel(productRepository: ProductRepository) : NikeViewModel() {
     val productsLiveData = MutableLiveData<List<Product>>()
     init {
+        progressBarLiveData.value = true
         productRepository.getProducts()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+            .doFinally { progressBarLiveData.value = false }
             .subscribe(object : SingleObserver<List<Product>> {
                 override fun onSubscribe(d: Disposable) {
                     compositeDisposable.add(d)
@@ -33,3 +35,9 @@ class MainViewModel(productRepository: ProductRepository) : NikeViewModel() {
             })
     }
 }
+
+
+/*
+* progressBarLiveData.value = true --> az value use kardim chon to thread e asli hasti.
+* .doFinally { progressBarLiveData.value = false } --> che javab mosbat bashe che manfi ...
+*  */

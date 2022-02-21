@@ -10,7 +10,6 @@ import com.example.nikestoreproject.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sevenlearn.nikestore.common.setupWithNavController
 
-
 class MainActivity : NikeActivity() {
     private var currentNavController: LiveData<NavController>? = null
 
