@@ -8,7 +8,10 @@ import com.example.nikestoreproject.data.repo.ProductRepositoryImpl
 import com.example.nikestoreproject.data.repo.source.BannerRemoteDataSource
 import com.example.nikestoreproject.data.repo.source.ProductLocalDataSource
 import com.example.nikestoreproject.data.repo.source.ProductRemoteDataSource
+import com.example.nikestoreproject.services.FrescoImageLoadingService
+import com.example.nikestoreproject.services.ImageLoadingService
 import com.example.nikestoreproject.services.http.createApiServiceInstance
+import com.facebook.drawee.backends.pipeline.Fresco
 import com.sevenlearn.nikestore.feature.main.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.dsl.viewModel
@@ -22,9 +25,11 @@ class App : Application() {
         super.onCreate()
 
         Timber.plant(Timber.DebugTree())
+        Fresco.initialize(this)
 
         val myModules = module {
             single { createApiServiceInstance() }
+            single <ImageLoadingService>{ FrescoImageLoadingService() }
             factory<ProductRepository> { ProductRepositoryImpl(ProductRemoteDataSource(get()), ProductLocalDataSource()) }
             factory<BannerRepository> { BannerRepositoryImpl(BannerRemoteDataSource(get())) }
             viewModel { MainViewModel(get(), get()) }
