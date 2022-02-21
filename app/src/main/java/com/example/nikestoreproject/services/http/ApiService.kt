@@ -1,5 +1,6 @@
 package com.example.nikestoreproject.services.http
 
+import com.example.nikestoreproject.data.Banner
 import com.example.nikestoreproject.data.Product
 import io.reactivex.Single
 import retrofit2.Retrofit
@@ -11,6 +12,9 @@ interface ApiService {
 
     @GET("product/list")
     fun getProducts(): Single<List<Product>>
+
+    @GET("banner/slider/")
+    fun getBanner (): Single<List<Banner>>
 }
 
 

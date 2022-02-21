@@ -13,6 +13,8 @@ android {
         versionCode 1
         versionName "1.0"
 
+        vectorDrawables.useSupportLibrary true
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -64,4 +66,11 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation "androidx.navigation:navigation-runtime-ktx:$nav_version"
+
+    //fresco
+    implementation 'com.facebook.fresco:fresco:1.11.0'
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
+
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
 }

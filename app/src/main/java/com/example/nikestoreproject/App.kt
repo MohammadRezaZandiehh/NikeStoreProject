@@ -1,11 +1,13 @@
 package com.example.nikestoreproject
 
 import android.app.Application
+import com.example.nikestoreproject.data.repo.BannerRepository
+import com.example.nikestoreproject.data.repo.BannerRepositoryImpl
 import com.example.nikestoreproject.data.repo.ProductRepository
 import com.example.nikestoreproject.data.repo.ProductRepositoryImpl
+import com.example.nikestoreproject.data.repo.source.BannerRemoteDataSource
 import com.example.nikestoreproject.data.repo.source.ProductLocalDataSource
 import com.example.nikestoreproject.data.repo.source.ProductRemoteDataSource
-import com.example.nikestoreproject.services.http.ApiService
 import com.example.nikestoreproject.services.http.createApiServiceInstance
 import com.sevenlearn.nikestore.feature.main.MainViewModel
 import org.koin.android.ext.koin.androidContext
@@ -19,12 +21,13 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        Timber.plant()
+        Timber.plant(Timber.DebugTree())
 
         val myModules = module {
             single { createApiServiceInstance() }
-            factory <ProductRepository> { ProductRepositoryImpl(ProductRemoteDataSource(get()), ProductLocalDataSource()) }
-            viewModel { MainViewModel(get()) }
+            factory<ProductRepository> { ProductRepositoryImpl(ProductRemoteDataSource(get()), ProductLocalDataSource()) }
+            factory<BannerRepository> { BannerRepositoryImpl(BannerRemoteDataSource(get())) }
+            viewModel { MainViewModel(get(), get()) }
         }
 
         startKoin {
