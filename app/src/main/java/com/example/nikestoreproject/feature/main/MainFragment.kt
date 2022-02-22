@@ -1,5 +1,6 @@
 package com.sevenlearn.nikestore.feature.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nikestoreproject.NikeFragment
 import com.example.nikestoreproject.R
+import com.example.nikestoreproject.common.EXTRA_KEY_DATA
 import com.example.nikestoreproject.common.convertDpToPixel
 import com.example.nikestoreproject.data.Product
 import com.example.nikestoreproject.feature.main.ProductListAdapter
+import com.example.nikestoreproject.feature.product.ProductDetailsActivity
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -18,7 +21,7 @@ import timber.log.Timber
 import java.util.*
 import kotlin.collections.ArrayList
 
-class MainFragment : NikeFragment() {
+class MainFragment : NikeFragment() , ProductListAdapter.OnProductClickListener{
     val mainViewModel: MainViewModel by viewModel()
     val productListAdapter: ProductListAdapter by inject()
     val productListAdapter2: ProductListAdapter by inject()
@@ -82,5 +85,11 @@ class MainFragment : NikeFragment() {
             }, 3000, 3000)
 //******
         }
+    }
+
+    override fun onProductClick(product: Product) {
+        startActivity(Intent(requireContext(), ProductDetailsActivity::class.java).apply {
+            putExtra(EXTRA_KEY_DATA, product)
+        })
     }
 }

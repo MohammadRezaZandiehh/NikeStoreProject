@@ -13,8 +13,13 @@ import com.example.nikestoreproject.data.Product
 import com.example.nikestoreproject.services.ImageLoadingService
 import com.sevenlearn.nikestore.view.NikeImageView
 
-class ProductListAdapter(val imageLoadingService: ImageLoadingService) : RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
+class ProductListAdapter(val imageLoadingService: ImageLoadingService) :
+    RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
+
     var products = ArrayList<Product>()
+    var onProductOnClickListener: OnProductClickListener? = null
+
+
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -34,7 +39,7 @@ class ProductListAdapter(val imageLoadingService: ImageLoadingService) : Recycle
             previousPriceTv.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             itemView.implementSpringAnimationTrait()
             itemView.setOnClickListener {
-
+                onProductOnClickListener?.onProductClick(product)
             }
         }
     }
@@ -49,6 +54,11 @@ class ProductListAdapter(val imageLoadingService: ImageLoadingService) : Recycle
         holder.bindProduct(products[position])
 
     override fun getItemCount(): Int = products.size
+
+
+    interface OnProductClickListener {
+        fun onProductClick(product: Product)
+    }
 }
 
 /*
