@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.nikestoreproject.NikeFragment
 import com.example.nikestoreproject.R
+import com.example.nikestoreproject.common.convertDpToPixel
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import timber.log.Timber
+import java.util.*
 
 class MainFragment : NikeFragment() {
     val mainViewModel: MainViewModel by viewModel()
@@ -27,21 +29,40 @@ class MainFragment : NikeFragment() {
             Timber.i(it.toString())
         }
         mainViewModel.progressBarLiveData.observe(viewLifecycleOwner) {
-            setProgressIndicator(true)
+            setProgressIndicator(it)
         }
         mainViewModel.bannerSliderLiveData.observe(viewLifecycleOwner){
             Timber.i(it.toString())
             val bannerSliderAdapter = BannerSliderAdapter(this, it)
             bannerSliderViewPager.adapter = bannerSliderAdapter
 
-//            val viewPagerHeight = (((bannerSliderViewPager.measuredWidth - convertDpToPixel(32f, requireContext())) * 173) / 328).toInt()
+            val viewPagerHeight = (((bannerSliderViewPager.measuredWidth - convertDpToPixel(
+                32f,
+                requireContext()
+            )) * 173) / 328).toInt()
 
-            val viewPagerHeight = (bannerSliderViewPager.measuredWidth * 173) / 328
             val layoutParams = bannerSliderViewPager.layoutParams
             layoutParams.height = viewPagerHeight
             bannerSliderViewPager.layoutParams = layoutParams
 
-//            sliderIndicator.setViewPager2(bannerSliderViewPager)
+            sliderIndicator.setViewPager2(bannerSliderViewPager)
+
+//******
+
+            val timer = Timer()
+            timer.schedule(object : TimerTask() {
+                override fun run() {
+                    if (bannerSliderViewPager.currentItem < bannerSliderAdapter.itemCount - 1)
+                        bannerSliderViewPager.setCurrentItem(
+                            bannerSliderViewPager.currentItem + 1,
+                            true
+                        )
+                    else
+                        bannerSliderViewPager.setCurrentItem(0, true)
+                }
+            }, 3000, 3000)
+
+//******
 
         }
     }

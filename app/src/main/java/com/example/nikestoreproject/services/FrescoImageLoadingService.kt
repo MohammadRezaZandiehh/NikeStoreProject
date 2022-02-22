@@ -12,3 +12,11 @@ class FrescoImageLoadingService :ImageLoadingService{
             throw IllegalStateException("ImageView must be instance of SimpleDraweeView")
     }
 }
+
+/*
+* if (imageView is SimpleDraweeView)  --> miad mige k check kon bbin in imageView instance i az SimpleDraweeView hast ya na ..
+*
+* throw IllegalStateException("ImageView must be instance of SimpleDraweeView")  --->
+* neshan dadane yek exception .
+*
+* */

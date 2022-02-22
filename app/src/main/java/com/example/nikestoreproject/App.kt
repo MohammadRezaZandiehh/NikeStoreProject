@@ -29,7 +29,7 @@ class App : Application() {
 
         val myModules = module {
             single { createApiServiceInstance() }
-            single <ImageLoadingService>{ FrescoImageLoadingService() }
+            single <ImageLoadingService> { FrescoImageLoadingService() }
             factory<ProductRepository> { ProductRepositoryImpl(ProductRemoteDataSource(get()), ProductLocalDataSource()) }
             factory<BannerRepository> { BannerRepositoryImpl(BannerRemoteDataSource(get())) }
             viewModel { MainViewModel(get(), get()) }

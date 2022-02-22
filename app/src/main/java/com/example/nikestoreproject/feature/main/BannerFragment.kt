@@ -32,11 +32,23 @@ class BannerFragment : Fragment() {
 
     companion object {
         fun newInstance(banner: Banner): BannerFragment {
-            return BannerFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable(EXTRA_KEY_DATA, banner)
-                }
-            }
+//            return BannerFragment().apply {
+//                arguments = Bundle().apply {
+//                    putParcelable(EXTRA_KEY_DATA, banner)
+//                }
+//            }
+
+/*
+*
+* raveshe bala tmaiz tar o kotlini tar ast. vali ---> raveshe paeini ghabele fahm tar ast.*/
+
+            val bannerFragment = BannerFragment()
+            val bundle = Bundle()
+            bundle.putParcelable(EXTRA_KEY_DATA, banner)
+            bannerFragment.arguments = bundle
+            return bannerFragment
         }
     }
 }
+
+/* kollamn apply{} dar kotlin kare hamon object sakhtn roi mikone fk konam .*/
