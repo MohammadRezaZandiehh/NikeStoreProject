@@ -23,6 +23,7 @@ fun convertDpToPixel(dp: Float, context: Context?): Float {
     }
 }
 
+// add "تومان" label and "," between 3 digit:
 fun formatPrice(
     price: Number,
     unitRelativeSizeFactor: Float = 0.7f
@@ -38,6 +39,9 @@ fun formatPrice(
     return spannableString
 }
 
+/*
+* in function yek animation b item haye recyclerView e ma ezafe mikone.
+* dar ProductListAdapter azash use kardm .*/
 fun View.implementSpringAnimationTrait() {
     val scaleXAnim = SpringAnimation(this, DynamicAnimation.SCALE_X, 0.90f)
     val scaleYAnim = SpringAnimation(this, DynamicAnimation.SCALE_Y, 0.90f)

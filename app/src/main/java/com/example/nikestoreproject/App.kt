@@ -8,6 +8,7 @@ import com.example.nikestoreproject.data.repo.ProductRepositoryImpl
 import com.example.nikestoreproject.data.repo.source.BannerRemoteDataSource
 import com.example.nikestoreproject.data.repo.source.ProductLocalDataSource
 import com.example.nikestoreproject.data.repo.source.ProductRemoteDataSource
+import com.example.nikestoreproject.feature.main.ProductListAdapter
 import com.example.nikestoreproject.services.FrescoImageLoadingService
 import com.example.nikestoreproject.services.ImageLoadingService
 import com.example.nikestoreproject.services.http.createApiServiceInstance
@@ -33,6 +34,7 @@ class App : Application() {
             factory<ProductRepository> { ProductRepositoryImpl(ProductRemoteDataSource(get()), ProductLocalDataSource()) }
             factory<BannerRepository> { BannerRepositoryImpl(BannerRemoteDataSource(get())) }
             viewModel { MainViewModel(get(), get()) }
+            factory { ProductListAdapter(get()) }
         }
 
         startKoin {
