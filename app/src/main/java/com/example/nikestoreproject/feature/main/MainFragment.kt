@@ -38,6 +38,7 @@ class MainFragment : NikeFragment() , ProductListAdapter.OnProductClickListener{
 
         latestProductsRv.adapter = productListAdapter
         mostPopularProductsRv.adapter = productListAdapter2
+        productListAdapter.onProductOnClickListener = this
 
 
         mainViewModel.productsLiveData.observe(viewLifecycleOwner) {

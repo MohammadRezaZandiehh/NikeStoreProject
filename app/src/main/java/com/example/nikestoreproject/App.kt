@@ -1,14 +1,11 @@
 package com.example.nikestoreproject
 
 import android.app.Application
-import com.example.nikestoreproject.data.repo.BannerRepository
-import com.example.nikestoreproject.data.repo.BannerRepositoryImpl
-import com.example.nikestoreproject.data.repo.ProductRepository
-import com.example.nikestoreproject.data.repo.ProductRepositoryImpl
-import com.example.nikestoreproject.data.repo.source.BannerRemoteDataSource
-import com.example.nikestoreproject.data.repo.source.ProductLocalDataSource
-import com.example.nikestoreproject.data.repo.source.ProductRemoteDataSource
+import android.os.Bundle
+import com.example.nikestoreproject.data.repo.*
+import com.example.nikestoreproject.data.repo.source.*
 import com.example.nikestoreproject.feature.main.ProductListAdapter
+import com.example.nikestoreproject.feature.product.ProductDetailsViewModel
 import com.example.nikestoreproject.services.FrescoImageLoadingService
 import com.example.nikestoreproject.services.ImageLoadingService
 import com.example.nikestoreproject.services.http.createApiServiceInstance
@@ -31,10 +28,12 @@ class App : Application() {
         val myModules = module {
             single { createApiServiceInstance() }
             single <ImageLoadingService> { FrescoImageLoadingService() }
-            factory<ProductRepository> { ProductRepositoryImpl(ProductRemoteDataSource(get()), ProductLocalDataSource()) }
-            factory<BannerRepository> { BannerRepositoryImpl(BannerRemoteDataSource(get())) }
-            viewModel { MainViewModel(get(), get()) }
+            factory <ProductRepository> { ProductRepositoryImpl(ProductRemoteDataSource(get()), ProductLocalDataSource()) }
+            factory <BannerRepository> { BannerRepositoryImpl(BannerRemoteDataSource(get())) }
             factory { ProductListAdapter(get()) }
+            factory <CommentRepository> { CommentRepositoryImpl(CommentRemoteDataSource(get())) }
+            viewModel { MainViewModel(get(), get()) }
+            viewModel { (bundle: Bundle) -> ProductDetailsViewModel(bundle, get())}
         }
 
         startKoin {

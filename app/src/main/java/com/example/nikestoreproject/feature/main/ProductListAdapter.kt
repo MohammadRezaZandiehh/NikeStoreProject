@@ -56,6 +56,8 @@ class ProductListAdapter(val imageLoadingService: ImageLoadingService) :
     override fun getItemCount(): Int = products.size
 
 
+
+
     interface OnProductClickListener {
         fun onProductClick(product: Product)
     }
