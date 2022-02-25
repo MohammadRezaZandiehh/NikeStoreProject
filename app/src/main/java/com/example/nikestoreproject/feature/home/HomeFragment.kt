@@ -1,4 +1,4 @@
-package com.sevenlearn.nikestore.feature.main
+package com.example.nikestoreproject.feature.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,6 +14,7 @@ import com.example.nikestoreproject.data.Product
 import com.example.nikestoreproject.feature.main.ProductListAdapter
 import com.example.nikestoreproject.feature.product.ProductDetailActivity
 import com.sevenlearn.nikestore.common.NikeFragment
+import com.sevenlearn.nikestore.feature.main.BannerSliderAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -21,9 +22,9 @@ import timber.log.Timber
 import java.util.*
 import kotlin.collections.ArrayList
 
-class MainFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
+class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
 
-    private val mainViewModel: MainViewModel by viewModel()
+    private val homeViewModel: HomeViewModel by viewModel()
     private val productListAdapter: ProductListAdapter by inject()
     private val productListAdapter2: ProductListAdapter by inject()
 
@@ -45,20 +46,20 @@ class MainFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
         productListAdapter.onProductClickListener = this
         productListAdapter2.onProductClickListener = this
 
-        mainViewModel.productsLiveData.observe(viewLifecycleOwner) {
+        homeViewModel.productsLiveData.observe(viewLifecycleOwner) {
             Timber.i(it.toString())
             productListAdapter.products = it as ArrayList<Product>
         }
 
-        mainViewModel.popularProductsLiveData.observe(viewLifecycleOwner) {
+        homeViewModel.popularProductsLiveData.observe(viewLifecycleOwner) {
             productListAdapter2.products = it as ArrayList<Product>
         }
 
-        mainViewModel.progressBarLiveData.observe(viewLifecycleOwner) {
+        homeViewModel.progressBarLiveData.observe(viewLifecycleOwner) {
             setProgressIndicator(it)
         }
 
-        mainViewModel.bannersLiveData.observe(viewLifecycleOwner) {
+        homeViewModel.bannersLiveData.observe(viewLifecycleOwner) {
             Timber.i(it.toString())
             val bannerSliderAdapter = BannerSliderAdapter(this, it)
             bannerSliderViewPager.adapter = bannerSliderAdapter

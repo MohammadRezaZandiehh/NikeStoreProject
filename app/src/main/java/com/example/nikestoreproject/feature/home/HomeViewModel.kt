@@ -1,4 +1,4 @@
-package com.sevenlearn.nikestore.feature.main
+package com.example.nikestoreproject.feature.home
 
 import androidx.lifecycle.MutableLiveData
 import com.example.nikestoreproject.common.NikeSingleObserver
@@ -13,7 +13,7 @@ import com.sevenlearn.nikestore.common.NikeViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class MainViewModel(productRepository: ProductRepository, bannerRepository: BannerRepository) : NikeViewModel() {
+class HomeViewModel(productRepository: ProductRepository, bannerRepository: BannerRepository) : NikeViewModel() {
 //    val productsLiveData = MutableLiveData<List<Product>>()
 //    val popularProductsLiveData = MutableLiveData<List<Product>>()
 //    val bannersLiveData = MutableLiveData<List<Banner>>()

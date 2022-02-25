@@ -1,4 +1,4 @@
-package com.example.nikestoreproject.feature.main
+package com.example.nikestoreproject.feature.common
 
 import android.graphics.Paint
 import android.view.LayoutInflater
