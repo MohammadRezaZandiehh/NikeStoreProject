@@ -22,6 +22,7 @@ class CommentAdapter(val showAll: Boolean = false) :
         val dateTv = itemView.findViewById<TextView>(R.id.commentDateTv)
         val authorTv = itemView.findViewById<TextView>(R.id.commentAuthor)
         val contentTv = itemView.findViewById<TextView>(R.id.commentContentTv)
+
         fun bindComment(comment: Comment) {
             titleTv.text = comment.title
             dateTv.text = comment.date
