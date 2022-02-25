@@ -16,10 +16,9 @@ import com.sevenlearn.nikestore.view.NikeImageView
 class ProductListAdapter(val imageLoadingService: ImageLoadingService) :
     RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
 
+    var onProductClickListener: OnProductClickListener? = null
+
     var products = ArrayList<Product>()
-    var onProductOnClickListener: OnProductClickListener? = null
-
-
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -39,7 +38,7 @@ class ProductListAdapter(val imageLoadingService: ImageLoadingService) :
             previousPriceTv.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             itemView.implementSpringAnimationTrait()
             itemView.setOnClickListener {
-                onProductOnClickListener?.onProductClick(product)
+                onProductClickListener?.onProductClick(product)
             }
         }
     }
@@ -54,9 +53,6 @@ class ProductListAdapter(val imageLoadingService: ImageLoadingService) :
         holder.bindProduct(products[position])
 
     override fun getItemCount(): Int = products.size
-
-
-
 
     interface OnProductClickListener {
         fun onProductClick(product: Product)

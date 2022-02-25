@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.nikestoreproject.NikeFragment
 import com.example.nikestoreproject.R
+import com.sevenlearn.nikestore.common.NikeFragment
 
 
 class CartFragment: NikeFragment() {

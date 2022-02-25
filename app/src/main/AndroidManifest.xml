@@ -14,7 +14,10 @@
         android:theme="@style/Theme.NikeStoreProject"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".feature.product.ProductDetailsActivity"
+            android:name=".feature.product.comment.CommentListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.product.ProductDetailActivity"
             android:exported="false" />
         <activity
             android:name="com.sevenlearn.nikestore.feature.main.MainActivity"

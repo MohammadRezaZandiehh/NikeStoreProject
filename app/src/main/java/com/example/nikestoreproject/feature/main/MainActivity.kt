@@ -4,10 +4,9 @@ import android.os.Bundle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.nikestoreproject.NikeActivity
 import com.example.nikestoreproject.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.sevenlearn.nikestore.common.NikeActivity
 import com.sevenlearn.nikestore.common.setupWithNavController
 
 class MainActivity : NikeActivity() {

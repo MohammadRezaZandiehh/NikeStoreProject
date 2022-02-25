@@ -5,7 +5,7 @@ import com.example.nikestoreproject.data.repo.source.BannerDataSource
 import io.reactivex.Single
 
 class BannerRepositoryImpl (val bannerRemoteDataSource: BannerDataSource): BannerRepository {
-    override fun getBannerSlider(): Single<List<Banner>> {
+    override fun getBanners(): Single<List<Banner>> {
         return bannerRemoteDataSource.getBanners()
     }
 }

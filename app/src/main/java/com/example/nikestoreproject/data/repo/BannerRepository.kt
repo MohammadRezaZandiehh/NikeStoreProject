@@ -5,5 +5,5 @@ import com.example.nikestoreproject.data.Product
 import io.reactivex.Single
 
 interface BannerRepository {
-    fun getBannerSlider(): Single<List<Banner>>
+    fun getBanners(): Single<List<Banner>>
 }
