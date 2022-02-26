@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_ID
+import com.example.nikestoreproject.common.NikeCompletableObserver
 import com.example.nikestoreproject.common.formatPrice
 import com.example.nikestoreproject.data.Comment
 import com.example.nikestoreproject.feature.ProductDetailsViewModel
@@ -16,6 +17,9 @@ import com.example.nikestoreproject.services.ImageLoadingService
 import com.example.nikestoreproject.view.scroll.ObservableScrollViewCallbacks
 import com.example.nikestoreproject.view.scroll.ScrollState
 import com.sevenlearn.nikestore.common.NikeActivity
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_product_details.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -25,9 +29,8 @@ import timber.log.Timber
 class ProductDetailActivity : NikeActivity() {
     private val productDetailViewModel: ProductDetailsViewModel by viewModel { parametersOf(intent.extras) }
     private val imageLoadingService: ImageLoadingService by inject()
-
-    //    private val commentAdapter : CommentAdapter by inject()
     private val commentAdapter = CommentAdapter()
+    private val compositeDisposable = CompositeDisposable()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -88,6 +91,17 @@ class ProductDetailActivity : NikeActivity() {
                 }
 
             })
+        }
+
+        addToCartBtn.setOnClickListener {
+            productDetailViewModel.onAddToCartBtn()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : NikeCompletableObserver(compositeDisposable) {
+                    override fun onComplete() {
+                        showSnackBar(getString(R.string.success_addToCart))
+                    }
+                })
         }
 
     }

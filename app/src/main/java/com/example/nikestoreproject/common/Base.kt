@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.nikestoreproject.R
+import com.google.android.material.snackbar.Snackbar
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class NikeFragment : Fragment(), NikeView {
@@ -54,6 +55,12 @@ interface NikeView {
 
             }
 
+        }
+    }
+
+    fun showSnackBar(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
+        rootView?.let {
+            Snackbar.make(it, message, duration)
         }
     }
 }
