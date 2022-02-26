@@ -4,8 +4,8 @@ import android.app.Application
 import android.os.Bundle
 import com.example.nikestoreproject.data.repo.*
 import com.example.nikestoreproject.data.repo.source.*
-import com.example.nikestoreproject.feature.main.ProductListAdapter
 import com.example.nikestoreproject.feature.ProductDetailsViewModel
+import com.example.nikestoreproject.feature.common.ProductListAdapter
 import com.example.nikestoreproject.feature.list.ProductListViewModel
 import com.example.nikestoreproject.services.FrescoImageLoadingService
 import com.example.nikestoreproject.services.ImageLoadingService

@@ -85,11 +85,13 @@
                     android:textColor="?android:textColorSecondary" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/viewLatestProductsBtn"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/viewAll"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_gravity="end|center_vertical"/>
+                    android:layout_gravity="end|center_vertical"
+                    android:text="@string/viewAll" />
+
             </FrameLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/latestProductsRv"

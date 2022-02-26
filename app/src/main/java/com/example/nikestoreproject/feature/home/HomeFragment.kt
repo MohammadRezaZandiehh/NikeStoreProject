@@ -11,13 +11,17 @@ import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_DATA
 import com.example.nikestoreproject.common.convertDpToPixel
 import com.example.nikestoreproject.data.Product
-import com.example.nikestoreproject.feature.main.ProductListAdapter
+import com.example.nikestoreproject.data.SORT_LATEST
+import com.example.nikestoreproject.feature.common.ProductListAdapter
+import com.example.nikestoreproject.feature.common.VIEW_TYPE_ROUND
+import com.example.nikestoreproject.feature.list.ProductListActivity
 import com.example.nikestoreproject.feature.product.ProductDetailActivity
 import com.sevenlearn.nikestore.common.NikeFragment
 import com.sevenlearn.nikestore.feature.main.BannerSliderAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 import timber.log.Timber
 import java.util.*
 import kotlin.collections.ArrayList
@@ -25,8 +29,8 @@ import kotlin.collections.ArrayList
 class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
 
     private val homeViewModel: HomeViewModel by viewModel()
-    private val productListAdapter: ProductListAdapter by inject()
-    private val productListAdapter2: ProductListAdapter by inject()
+    private val productListAdapter: ProductListAdapter by inject{ parametersOf(VIEW_TYPE_ROUND)}
+    private val productListAdapter2: ProductListAdapter by inject{ parametersOf(VIEW_TYPE_ROUND)}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -53,6 +57,12 @@ class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
 
         homeViewModel.popularProductsLiveData.observe(viewLifecycleOwner) {
             productListAdapter2.products = it as ArrayList<Product>
+        }
+
+        viewLatestProductsBtn.setOnClickListener {
+            startActivity(Intent(requireContext(), ProductListActivity::class.java).apply {
+                putExtra(EXTRA_KEY_DATA, SORT_LATEST)
+            })
         }
 
         homeViewModel.progressBarLiveData.observe(viewLifecycleOwner) {

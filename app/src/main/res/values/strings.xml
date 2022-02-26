@@ -15,4 +15,11 @@
     <string name="sortPopular">پربازدیدترین</string>
     <string name="sortPriceHighToLow">گران ترین</string>
     <string name="sortPriceLowToHigh">ارزان ترین</string>
+
+    <string-array name="sortTitlesArray">
+        <item>@string/sortLatest</item>
+        <item>@string/sortPopular</item>
+        <item>@string/sortPriceHighToLow</item>
+        <item>@string/sortPriceLowToHigh</item>
+    </string-array>
 </resources>
