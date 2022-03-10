@@ -88,7 +88,7 @@ class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
 
         ////******
 //auto movement / action slider
-        val timer = Timer()
+/*        val timer = Timer()
         timer.schedule(object : TimerTask() {
             override fun run() {
                 if (bannerSliderViewPager.adapter != null) {
@@ -102,7 +102,7 @@ class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
                         bannerSliderViewPager.setCurrentItem(0, true)
                 }
             }
-        }, 3000, 3000)
+        }, 3000, 3000)*/
 //******
 
 

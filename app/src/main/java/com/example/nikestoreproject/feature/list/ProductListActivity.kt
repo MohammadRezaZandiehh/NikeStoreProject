@@ -1,11 +1,8 @@
 package com.example.nikestoreproject.feature.list
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_DATA

@@ -8,10 +8,16 @@ import com.example.nikestoreproject.common.NikeSingleObserver
 import com.example.nikestoreproject.common.asyncNetworkRequest
 import com.example.nikestoreproject.data.Comment
 import com.example.nikestoreproject.data.Product
+import com.example.nikestoreproject.data.repo.CartRepository
 import com.example.nikestoreproject.data.repo.CommentRepository
 import com.sevenlearn.nikestore.common.NikeViewModel
+import io.reactivex.Completable
 
-class ProductDetailsViewModel(bundle: Bundle, commentRepository: CommentRepository): NikeViewModel() {
+class ProductDetailsViewModel(
+    bundle: Bundle,
+    commentRepository: CommentRepository,
+    val cartRepository: CartRepository
+) : NikeViewModel() {
 
     val productLiveData = MutableLiveData<Product>()
     val commentsLiveData = MutableLiveData<List<Comment>>()
@@ -28,4 +34,7 @@ class ProductDetailsViewModel(bundle: Bundle, commentRepository: CommentReposito
                 }
             })
     }
+
+    fun addToCart(): Completable = cartRepository.addToCart(productLiveData.value!!.id).ignoreElement()
+
 }
