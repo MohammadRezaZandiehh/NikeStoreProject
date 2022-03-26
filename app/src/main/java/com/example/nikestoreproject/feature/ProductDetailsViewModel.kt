@@ -12,6 +12,7 @@ import com.example.nikestoreproject.data.repo.CartRepository
 import com.example.nikestoreproject.data.repo.CommentRepository
 import com.sevenlearn.nikestore.common.NikeViewModel
 import io.reactivex.Completable
+import io.reactivex.Single
 
 class ProductDetailsViewModel(
     bundle: Bundle,
@@ -35,6 +36,6 @@ class ProductDetailsViewModel(
             })
     }
 
-    fun addToCart(): Completable = cartRepository.addToCart(productLiveData.value!!.id).ignoreElement()
+    fun onAddToCartBtn():Completable = cartRepository.addToCart(productLiveData.value!!.id).ignoreElement()
 
 }

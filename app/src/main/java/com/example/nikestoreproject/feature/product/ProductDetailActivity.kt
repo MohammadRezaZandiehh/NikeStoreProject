@@ -74,7 +74,7 @@ class ProductDetailActivity : NikeActivity() {
 
     }
 
-    private fun initViews() {
+    fun initViews() {
         commentsRv.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         commentsRv.adapter = commentAdapter
         commentsRv.isNestedScrollingEnabled = false
@@ -101,24 +101,25 @@ class ProductDetailActivity : NikeActivity() {
                 }
 
             })
-
-            addToCard.setOnClickListener {
-                productDetailViewModel.addToCart()
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(object : NikeCompletableObserver(compositeDisposable) {
-                        override fun onComplete() {
-                            Snackbar.make(rootView as CoordinatorLayout, "به سبد خرید اضافه شد", Snackbar.LENGTH_SHORT)
-                                .show()
-
-                        }
-
-                    })
-
-            }
         }
+
+        addToCard.setOnClickListener {
+            productDetailViewModel.onAddToCartBtn()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : NikeCompletableObserver(compositeDisposable) {
+                    override fun onComplete() {
+                        showSnackBar(getString(R.string.success_addToCart))
+                    }
+                })
+        }
+
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        compositeDisposable.clear()
+    }
 }
 
 

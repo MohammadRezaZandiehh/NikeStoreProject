@@ -1,23 +1,46 @@
 package com.sevenlearn.nikestore.common
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.nikestoreproject.R
+import com.example.nikestoreproject.common.NikeException
+import com.example.nikestoreproject.common.NikeExceptionMapper
+import com.example.nikestoreproject.feature.feature.AuthActivity
+import com.google.android.material.snackbar.Snackbar
 import io.reactivex.disposables.CompositeDisposable
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
+import java.lang.Exception
 
 abstract class NikeFragment : Fragment(), NikeView {
     override val rootView: CoordinatorLayout?
         get() = view as CoordinatorLayout
     override val viewContext: Context?
         get() = context
+
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
+    }
 }
 
 abstract class NikeActivity : AppCompatActivity(), NikeView {
@@ -35,6 +58,16 @@ abstract class NikeActivity : AppCompatActivity(), NikeView {
         }
     override val viewContext: Context?
         get() = this
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onDestroy() {
+        EventBus.getDefault().unregister(this)
+        super.onDestroy()
+    }
 }
 
 interface NikeView {
@@ -56,6 +89,29 @@ interface NikeView {
 
         }
     }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun showError(nikeException: NikeException) {
+        viewContext?.let {
+            when (nikeException.type) {
+                NikeException.Type.SIMPLE -> showSnackBar(
+                    nikeException.serverMessage ?: it.getString(nikeException.userFriendlyMessage)
+                )
+
+                NikeException.Type.AUTH -> {
+                    it.startActivity(Intent(it, AuthActivity::class.java))
+                    Toast.makeText(it, nikeException.serverMessage, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    fun showSnackBar(message: String, duration: Int = Snackbar.LENGTH_SHORT) {
+        rootView?.let {
+            Snackbar.make(it, message, duration)
+        }
+    }
 }
 
 abstract class NikeViewModel : ViewModel() {
@@ -68,3 +124,6 @@ abstract class NikeViewModel : ViewModel() {
     }
 
 }
+
+
+
