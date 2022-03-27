@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_ID
 import com.example.nikestoreproject.common.NikeCompletableObserver
+import com.example.nikestoreproject.common.NikeExceptionMapper
 import com.example.nikestoreproject.common.formatPrice
 import com.example.nikestoreproject.data.Comment
 import com.example.nikestoreproject.feature.ProductDetailsViewModel
