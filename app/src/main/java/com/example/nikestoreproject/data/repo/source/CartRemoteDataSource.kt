@@ -9,11 +9,12 @@ import com.example.nikestoreproject.data.MessageResponse
 import io.reactivex.Single
 
 class CartRemoteDataSource(val apiService: ApiService) : CartDataSource {
-    override fun addToCart(productId: Int): Single<AddToCartResponse> = apiService.addToCart(
-        JsonObject().apply {
+    override fun addToCart(productId: Int): Single<AddToCartResponse> {
+        return apiService.addToCart(JsonObject().apply {
             addProperty("product_id", productId)
-        }
-    )
+        })
+    }
+
 
     override fun get(): Single<CartResponse> {
         TODO("Not yet implemented")

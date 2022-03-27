@@ -1,9 +1,6 @@
 package com.example.nikestoreproject.services.http
 
-import com.example.nikestoreproject.data.AddToCartResponse
-import com.example.nikestoreproject.data.Banner
-import com.example.nikestoreproject.data.Comment
-import com.example.nikestoreproject.data.Product
+import com.example.nikestoreproject.data.*
 import com.google.gson.JsonObject
 import io.reactivex.Single
 import retrofit2.Retrofit
@@ -13,6 +10,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
+import java.security.MessageDigest
 
 interface ApiService {
 
@@ -27,6 +25,12 @@ interface ApiService {
 
     @POST("cart/add")
     fun addToCart(@Body jsonObject: JsonObject):Single<AddToCartResponse>
+
+    @POST("auth/token")
+    fun logIn (@Body jsonObject: JsonObject):Single<TokenResponse>
+
+    @POST("user/register")
+    fun  signUp(@Body jsonObject: JsonObject): Single<MessageResponse>
 }
 
 
