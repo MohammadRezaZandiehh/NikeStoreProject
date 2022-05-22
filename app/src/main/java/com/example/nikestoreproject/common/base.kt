@@ -1,4 +1,4 @@
-package com.example.nikestoreproject
+package com.example.nikestoreproject.common
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -39,6 +39,6 @@ abstract class NikeViewModel : ViewModel() {
 
 * --> in file va class hgaye tooshon ro sakhtim ta masalan agar khastim b hameye fragment ha felan option ro add konim to hamin ja anjam beshan. <--
 
-* abstracy mikonim chon bazi az class ha hastan k chon bazi az fun hashon bayad tavasote farzandaneshoon override shavand.
+* abstract mikonim chon bazi az class ha hastan k chon bazi az fun hashon bayad tavasote farzandaneshoon override shavand.
 *
 * */

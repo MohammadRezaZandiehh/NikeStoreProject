@@ -1,7 +1,7 @@
 package com.example.nikestoreproject.feature.main
 
 import androidx.lifecycle.MutableLiveData
-import com.example.nikestoreproject.NikeViewModel
+import com.example.nikestoreproject.common.NikeViewModel
 import com.example.nikestoreproject.data.Product
 import com.example.nikestoreproject.data.repo.ProductRepository
 import io.reactivex.SingleObserver
