@@ -1,7 +1,7 @@
 package com.example.nikestoreproject.services
 
 import com.facebook.drawee.view.SimpleDraweeView
-import com.sevenlearn.nikestore.view.NikeImageView
+import com.example.nikestoreproject.view.NikeImageView
 import java.lang.IllegalStateException
 
 class FrescoImageLoadingService :ImageLoadingService{

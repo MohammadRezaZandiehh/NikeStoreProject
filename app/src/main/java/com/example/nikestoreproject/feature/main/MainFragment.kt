@@ -10,6 +10,7 @@ import com.example.nikestoreproject.NikeFragment
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.convertDpToPixel
 import com.example.nikestoreproject.data.Product
+import com.example.nikestoreproject.feature.main.BannerSliderAdapter
 import com.example.nikestoreproject.feature.main.ProductListAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.ext.android.inject
