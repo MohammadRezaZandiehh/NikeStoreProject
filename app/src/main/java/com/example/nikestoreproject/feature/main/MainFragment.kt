@@ -12,6 +12,7 @@ import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_DATA
 import com.example.nikestoreproject.common.convertDpToPixel
 import com.example.nikestoreproject.data.Product
+import com.example.nikestoreproject.feature.main.BannerSliderAdapter
 import com.example.nikestoreproject.feature.main.ProductListAdapter
 import com.example.nikestoreproject.feature.product.ProductDetailsActivity
 import kotlinx.android.synthetic.main.fragment_main.*
