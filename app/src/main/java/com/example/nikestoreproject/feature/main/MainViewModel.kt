@@ -1,12 +1,10 @@
 package com.sevenlearn.nikestore.feature.main
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.nikestoreproject.common.NikeSingleObserver
 import com.example.nikestoreproject.common.asyncNetworkRequest
-import com.example.nikestoreproject.data.Banner
-import com.example.nikestoreproject.data.Product
-import com.example.nikestoreproject.data.SORT_LATEST
-import com.example.nikestoreproject.data.SORT_POPULAR
+import com.example.nikestoreproject.data.*
 import com.example.nikestoreproject.data.repo.BannerRepository
 import com.example.nikestoreproject.data.repo.ProductRepository
 import com.sevenlearn.nikestore.common.NikeViewModel
@@ -89,6 +87,21 @@ class MainViewModel(productRepository: ProductRepository, bannerRepository: Bann
                 }
             })
     }
+
+    // bottom method is good idea for write once code for SORTS of ProductList:
+
+    /*fun showListOfProducts(sortId:Int): LiveData<List<Product>> {
+        if (sortId == SORT_LATEST || sortId == SORT_POPULAR || sortId == SORT_PRICE_ASC || sortId == SORT_PRICE_DESC) {
+            productRepository.getProducts(sortId).asyncNetworkRequest()
+                .doFinally { progressBarLiveData.value = false }
+                .subscribe(object : NikeSingleObserver<List<(Product)>>(compositeDisposable) {
+                    override fun onSuccess(t: List<Product>) {
+                        productsLiveData.value = t
+                    }
+                })
+        }
+        return productsLiveData
+    }*/
 }
 
 

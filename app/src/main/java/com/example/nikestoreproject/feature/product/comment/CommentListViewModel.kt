@@ -1,4 +1,4 @@
-package com.sevenlearn.nikestore.feature.product.comment
+package com.example.nikestoreproject.feature.product.comment
 
 import androidx.lifecycle.MutableLiveData
 import com.example.nikestoreproject.common.NikeSingleObserver

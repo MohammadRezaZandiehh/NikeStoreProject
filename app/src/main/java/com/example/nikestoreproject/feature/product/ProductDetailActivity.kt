@@ -98,4 +98,4 @@ class ProductDetailActivity : NikeActivity() {
 /*
 * startActivity(Intent( this, CommentListActivity::class.java).putExtra(EXTRA_KEY_ID, productDetailViewModel.productLiveData.value!!.id))
 * khate bala dar ghesmate : detail_Fifth_17th_session ------> bi nahaaaaayat kare khaffani kard.
-* k chjoori omad productId ro a ProductDetailViewModel pass dad b intent ta " edame ye comment haye yek mahsool e khas " namayesh dade shavad .*/
+* k chjoori omad productId ro az ProductDetailViewModel pass dad b intent ta " edame ye comment haye yek mahsool e khas " namayesh dade shavad .*/
