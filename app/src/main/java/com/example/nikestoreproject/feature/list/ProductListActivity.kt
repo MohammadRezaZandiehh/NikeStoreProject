@@ -24,13 +24,7 @@ import timber.log.Timber
 
 class ProductListActivity : NikeActivity(), ProductListAdapter.OnProductClickListener {
 
-    val viewModel: ProductListViewModel by viewModel {
-        parametersOf(
-            intent.extras!!.getInt(
-                EXTRA_KEY_DATA
-            )
-        )
-    }
+    val viewModel: ProductListViewModel by viewModel { parametersOf(intent.extras!!.getInt(EXTRA_KEY_DATA)) }
     val productListAdapter: ProductListAdapter by inject { parametersOf(VIEW_TYPE_SMALL) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,6 +74,7 @@ class ProductListActivity : NikeActivity(), ProductListAdapter.OnProductClickLis
             val dialog = MaterialAlertDialogBuilder(this)
                 .setSingleChoiceItems(
                     R.array.sortTitlesArray, viewModel.sort
+                //khate paein hamon setOnClickListener ast vase aghti k rooye har kodom az item haye dialog click mishe:
                 ) { dialog, selectedSortIndex ->
                     dialog.dismiss()
                     viewModel.onSelectedSortChangedByUser(selectedSortIndex)
