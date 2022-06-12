@@ -1,4 +1,4 @@
-package com.example.nikestoreproject.data.repo
+package com.example.nikestoreproject.data
 
 import timber.log.Timber
 
@@ -10,7 +10,7 @@ object TokenContainer {
 
     fun update(token: String?, refreshToken: String?) {
         Timber.i("Access Token-> ${token?.substring(0, 10)}, Refresh Token-> $refreshToken")
-        this.token = token
-        this.refreshToken = refreshToken
+        TokenContainer.token = token
+        TokenContainer.refreshToken = refreshToken
     }
 }

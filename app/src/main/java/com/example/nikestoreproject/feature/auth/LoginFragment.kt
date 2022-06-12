@@ -29,7 +29,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         loginBtn.setOnClickListener {
-            viewModel.logIn(emailEt.text.toString(), passwordEt.text.toString())
+            viewModel.login(emailEt.text.toString(), passwordEt.text.toString())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : NikeCompletableObserver(compositeDisposable) {
@@ -38,6 +38,12 @@ class LoginFragment : Fragment() {
                     }
 
                 })
+        }
+
+        signUpLinkBtn.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fragmentContainer, SignUpFragment())
+            }.commit()
         }
     }
 

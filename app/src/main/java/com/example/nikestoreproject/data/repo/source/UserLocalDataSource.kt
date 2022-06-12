@@ -3,7 +3,7 @@ package com.example.nikestoreproject.data.repo.source
 import android.content.SharedPreferences
 import com.example.nikestoreproject.data.MessageResponse
 import com.example.nikestoreproject.data.TokenResponse
-import com.example.nikestoreproject.data.repo.TokenContainer
+import com.example.nikestoreproject.data.TokenContainer
 import io.reactivex.Single
 
 class UserLocalDataSource (val sharedPreferences: SharedPreferences): UserDataSource{

@@ -46,6 +46,7 @@ class App : Application() {
 
             single<SharedPreferences> { this@App.getSharedPreferences("app_settings", MODE_PRIVATE) }
             single<UserRepository> { UserRepositoryImpl(UserLocalDataSource(get()), UserRemoteDataSource(get())) }
+            single { UserLocalDataSource(get()) }
 
             viewModel { HomeViewModel(get(), get()) }
             viewModel { (bundle: Bundle) -> ProductDetailsViewModel(bundle, get(), get()) }
