@@ -1,5 +1,6 @@
 package com.example.nikestoreproject.data
 
+import androidx.lifecycle.MutableLiveData
 import com.example.nikestoreproject.data.CartItem
 
 data class CartResponse(
@@ -7,4 +8,10 @@ data class CartResponse(
     val payable_price: Int,
     val shipping_cost: Int,
     val total_price: Int
+)
+
+data class PurchaseDetail(
+    var totalPrice: Int,
+    var shipping_cost: Int,
+    var payable_price: Int
 )
