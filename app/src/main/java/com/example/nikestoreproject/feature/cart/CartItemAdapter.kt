@@ -34,6 +34,8 @@ class CartItemAdapter(
                 formatPrice(cartItem.product.price + cartItem.product.discount)
             containerView.priceTv.text = formatPrice(cartItem.product.price)
             imageLoadingService.load(containerView.productIv, cartItem.product.image)
+
+
             containerView.removeFromCartBtn.setOnClickListener {
                 cartItemViewCallbacks.onRemoveCartItemButtonClick(cartItem)
             }
@@ -118,7 +120,7 @@ class CartItemAdapter(
     override fun getItemCount(): Int = cartItems.size + 1
 
     override fun getItemViewType(position: Int): Int {
-        if (position == cartItems.size)
+        if (position == cartItems.size)                    /*It means if it was the last item -> show the Purchase_Detail*/
             return VIEW_TYPE_PURCHASE_DETAILS
         else
             return VIEW_TYPE_CART_ITEM
@@ -132,19 +134,19 @@ class CartItemAdapter(
         }
     }
 
-/*    fun increaseCount(cartItem: CartItem) {
+    fun increaseCount(cartItem: CartItem) {
         val index = cartItems.indexOf(cartItem)
         if (index > -1) {
             cartItems[index].changeCountProgressBarIsVisible = false
             notifyItemChanged(index)
         }
-    }*/
+    }
 
-/*    fun decreaseCount(cartItem: CartItem){
+    fun decreaseCount(cartItem: CartItem){
         val index = cartItems.indexOf(cartItem)
         if (index > -1) {
             cartItems[index].changeCountProgressBarIsVisible = false
             notifyItemChanged(index)
         }
-    }*/
+    }
 }
