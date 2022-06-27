@@ -11,6 +11,7 @@ import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_DATA
 import com.example.nikestoreproject.common.NikeCompletableObserver
 import com.example.nikestoreproject.data.CartItem
+import com.example.nikestoreproject.feature.auth.AuthActivity
 import com.example.nikestoreproject.feature.product.ProductDetailActivity
 import com.example.nikestoreproject.services.ImageLoadingService
 import com.sevenlearn.nikestore.common.NikeFragment
@@ -18,6 +19,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_cart.*
+import kotlinx.android.synthetic.main.view_cart_empty_state.*
+import kotlinx.android.synthetic.main.view_cart_empty_state.view.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -61,6 +64,22 @@ class CartFragment : NikeFragment(), CartItemAdapter.CartItemViewCallbacks {
                 adapter.purchaseDetail = it
                 adapter.notifyItemChanged(adapter.cartItems.size)
             }
+        }
+
+        viewModel.emptyStateLiveData.observe(viewLifecycleOwner) {
+            if (it.mustShow) {
+                val emptyState = showEmptyState(R.layout.view_cart_empty_state)
+
+                emptyState?.let { view ->
+                    view.emptyStateMessageTv.text = getString(it.messageRecId)
+                    view.emptyStateCtaBtn.visibility =
+                        if (it.mustShowCallToActionBtn) View.VISIBLE else View.GONE
+                    view.emptyStateCtaBtn.setOnClickListener {
+                        startActivity(Intent(requireContext(), AuthActivity::class.java))
+                    }
+                }
+            } else
+                emptyStateRootView?.visibility = View.GONE
         }
     }
 
