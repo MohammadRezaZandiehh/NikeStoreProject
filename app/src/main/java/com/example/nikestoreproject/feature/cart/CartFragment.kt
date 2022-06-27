@@ -122,8 +122,8 @@ class CartFragment : NikeFragment(), CartItemAdapter.CartItemViewCallbacks {
         })
     }
 
-/*    override fun onStart() {
+    override fun onStart() {
         super.onStart()
         viewModel.refresh()
-    }*/
+    }
 }

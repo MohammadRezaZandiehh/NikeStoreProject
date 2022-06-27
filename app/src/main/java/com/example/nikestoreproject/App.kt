@@ -15,6 +15,7 @@ import com.example.nikestoreproject.services.ImageLoadingService
 import com.example.nikestoreproject.services.http.createApiServiceInstance
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.example.nikestoreproject.feature.home.HomeViewModel
+import com.example.nikestoreproject.feature.main.MainViewModel
 import com.sevenlearn.nikestore.feature.product.comment.CommentListViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.dsl.viewModel
@@ -55,6 +56,7 @@ class App : Application() {
             viewModel { (sort: Int) -> ProductListViewModel(sort, get()) }
             viewModel { AuthViewModel(get()) }
             viewModel { CartViewModel(get()) }
+            viewModel { MainViewModel(get()) }
         }
 
         startKoin {

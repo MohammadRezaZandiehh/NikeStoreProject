@@ -8,6 +8,7 @@ import com.example.nikestoreproject.data.*
 import com.example.nikestoreproject.data.repo.CartRepository
 import com.sevenlearn.nikestore.common.NikeViewModel
 import io.reactivex.Completable
+import org.greenrobot.eventbus.EventBus
 import timber.log.Timber
 
 class CartViewModel(val cartRepository: CartRepository) : NikeViewModel() {
@@ -15,14 +16,15 @@ class CartViewModel(val cartRepository: CartRepository) : NikeViewModel() {
     val purchaseDetailLiveData = MutableLiveData<PurchaseDetail>()
     val emptyStateLiveData = MutableLiveData<EmptyState>()
 
-    init {
+/*    init {
         refresh()
-    }
+    }*/
 
 
     fun getCartItem() {
         if (!TokenContainer.token.isNullOrEmpty()) {
             progressBarLiveData.value = true
+            emptyStateLiveData.value = EmptyState(false)
             cartRepository.get()
                 .asyncNetworkRequest()
                 .doFinally { progressBarLiveData.value = false }
@@ -47,6 +49,11 @@ class CartViewModel(val cartRepository: CartRepository) : NikeViewModel() {
             .doAfterSuccess {
                 Timber.i("Cart Items Count after remove-> ${cartItemsLiveData.value?.size}")
                 calculateAndPublishPurchaseDetail()
+                val cartItemCart = EventBus.getDefault().getStickyEvent(CartItemCount::class.java)
+                cartItemCart?.let {
+                    it.count -= cartItem.count
+                    EventBus.getDefault().postSticky(it)
+                }
                 cartItemsLiveData.value?.let {
                     if (it.isEmpty())
                         emptyStateLiveData.postValue(EmptyState(true, R.string.cartEmptyState))
@@ -58,12 +65,22 @@ class CartViewModel(val cartRepository: CartRepository) : NikeViewModel() {
         cartRepository.changeCount(cartItem.cart_item_id, ++cartItem.count)
             .doAfterSuccess {
                 calculateAndPublishPurchaseDetail()
+                val cartItemCart = EventBus.getDefault().getStickyEvent(CartItemCount::class.java)
+                cartItemCart?.let {
+                    it.count += 1
+                    EventBus.getDefault().postSticky(it)
+                }
             }.ignoreElement()
 
     fun decreaseCartItemCount(cartItem: CartItem): Completable =
         cartRepository.changeCount(cartItem.cart_item_id, --cartItem.count)
             .doAfterSuccess {
                 calculateAndPublishPurchaseDetail()
+                val cartItemCart = EventBus.getDefault().getStickyEvent(CartItemCount::class.java)
+                cartItemCart?.let {
+                    it.count -= 1
+                    EventBus.getDefault().postSticky(it)
+                }
             }.ignoreElement()
 
     fun refresh() {

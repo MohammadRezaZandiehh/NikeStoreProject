@@ -29,8 +29,8 @@ import kotlin.collections.ArrayList
 class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
 
     private val homeViewModel: HomeViewModel by viewModel()
-    private val productListAdapter: ProductListAdapter by inject{ parametersOf(VIEW_TYPE_ROUND)}
-    private val productListAdapter2: ProductListAdapter by inject{ parametersOf(VIEW_TYPE_ROUND)}
+    private val productListAdapter: ProductListAdapter by inject { parametersOf(VIEW_TYPE_ROUND) }
+    private val productListAdapter2: ProductListAdapter by inject { parametersOf(VIEW_TYPE_ROUND) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -71,21 +71,22 @@ class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
 
         homeViewModel.bannersLiveData.observe(viewLifecycleOwner) {
             Timber.i(it.toString())
-            val bannerSliderAdapter = BannerSliderAdapter(this, it)
-            bannerSliderViewPager.adapter = bannerSliderAdapter
-            val viewPagerHeight = (((bannerSliderViewPager.measuredWidth - convertDpToPixel(
-                32f,
-                requireContext()
-            )) * 173) / 328).toInt()
+            bannerSliderViewPager.post {
+                val bannerSliderAdapter = BannerSliderAdapter(this, it)
+                bannerSliderViewPager.adapter = bannerSliderAdapter
+                val viewPagerHeight = (((bannerSliderViewPager.measuredWidth - convertDpToPixel(
+                    32f,
+                    requireContext()
+                )) * 173) / 328).toInt()
 
-            val layoutParams = bannerSliderViewPager.layoutParams
-            layoutParams.height = viewPagerHeight
-            bannerSliderViewPager.layoutParams = layoutParams
+                val layoutParams = bannerSliderViewPager.layoutParams
+                layoutParams.height = viewPagerHeight
+                bannerSliderViewPager.layoutParams = layoutParams
 
-            sliderIndicator.setViewPager2(bannerSliderViewPager)
+                sliderIndicator.setViewPager2(bannerSliderViewPager)
 
+            }
         }
-
         ////******
 //auto movement / action slider
 /*        val timer = Timer()
