@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import com.example.nikestoreproject.data.repo.*
 import com.example.nikestoreproject.data.repo.source.*
+import com.example.nikestoreproject.eventBusExample.MyEvent
 import com.example.nikestoreproject.feature.ProductDetailsViewModel
 import com.example.nikestoreproject.feature.auth.AuthViewModel
 import com.example.nikestoreproject.feature.cart.CartViewModel
@@ -17,17 +18,31 @@ import com.facebook.drawee.backends.pipeline.Fresco
 import com.example.nikestoreproject.feature.home.HomeViewModel
 import com.example.nikestoreproject.feature.main.MainViewModel
 import com.sevenlearn.nikestore.feature.product.comment.CommentListViewModel
+import org.greenrobot.eventbus.EventBus
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.android.ext.android.get
 import org.koin.dsl.module
 import timber.log.Timber
+import java.util.*
 
 class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+
+
+        val timer = Timer()
+        timer.schedule(object : TimerTask() {
+            override fun run() {
+                EventBus.getDefault().post(MyEvent())
+            }
+        },3000, 3000)
+
+
+
         Timber.plant(Timber.DebugTree())
 
         Fresco.initialize(this)
@@ -46,8 +61,18 @@ class App : Application() {
             factory<CommentRepository> { CommentRepositoryImpl(CommentRemoteDataSource(get())) }
             factory<CartRepository> { CartRepositoryImpl(CartRemoteDataSource(get())) }
 
-            single<SharedPreferences> { this@App.getSharedPreferences("app_settings", MODE_PRIVATE) }
-            single<UserRepository> { UserRepositoryImpl(UserLocalDataSource(get()), UserRemoteDataSource(get())) }
+            single<SharedPreferences> {
+                this@App.getSharedPreferences(
+                    "app_settings",
+                    MODE_PRIVATE
+                )
+            }
+            single<UserRepository> {
+                UserRepositoryImpl(
+                    UserLocalDataSource(get()),
+                    UserRemoteDataSource(get())
+                )
+            }
             single { UserLocalDataSource(get()) }
 
             viewModel { HomeViewModel(get(), get()) }

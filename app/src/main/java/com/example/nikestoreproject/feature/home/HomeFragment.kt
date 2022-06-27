@@ -12,6 +12,7 @@ import com.example.nikestoreproject.common.EXTRA_KEY_DATA
 import com.example.nikestoreproject.common.convertDpToPixel
 import com.example.nikestoreproject.data.Product
 import com.example.nikestoreproject.data.SORT_LATEST
+import com.example.nikestoreproject.eventBusExample.ActivityA
 import com.example.nikestoreproject.feature.common.ProductListAdapter
 import com.example.nikestoreproject.feature.common.VIEW_TYPE_ROUND
 import com.example.nikestoreproject.feature.list.ProductListActivity
@@ -40,6 +41,10 @@ class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        buttonEvent.setOnClickListener {
+            startActivity(Intent(requireActivity(), ActivityA::class.java))
+        }
         latestProductsRv.layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
 

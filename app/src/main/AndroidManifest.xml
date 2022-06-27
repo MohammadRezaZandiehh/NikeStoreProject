@@ -15,6 +15,8 @@
         android:theme="@style/Theme.NikeStoreProject"
         android:usesCleartextTraffic="true">
         <activity android:name=".feature.auth.AuthActivity" android:theme="@style/Theme.Nike.AuthTheme"></activity>
+        <activity android:name=".eventBusExample.ActivityA"
+            android:exported="false"/>
         <activity
             android:name=".feature.list.ProductListActivity"
             android:exported="false" />
