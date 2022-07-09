@@ -20,6 +20,9 @@ interface ApiService {
     @GET("product/list")
     fun getProducts(@Query("sort") sort: String): Single<List<Product>>
 
+    @GET("product/list")
+    suspend fun getProducts2(@Query("sort") sort: String): List<Product>
+
     @GET("banner/slider/")
     fun getBanner(): Single<List<Banner>>
 

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.nikestoreproject.R
-import com.sevenlearn.nikestore.common.NikeFragment
+import com.example.nikestoreproject.common.NikeFragment
 
 
 class ProfileFragment: NikeFragment() {

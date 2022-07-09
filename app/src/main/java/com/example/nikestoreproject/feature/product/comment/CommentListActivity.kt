@@ -8,7 +8,7 @@ import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_ID
 import com.example.nikestoreproject.data.Comment
 import com.example.nikestoreproject.feature.product.CommentAdapter
-import com.sevenlearn.nikestore.common.NikeActivity
+import com.example.nikestoreproject.common.NikeActivity
 import com.sevenlearn.nikestore.feature.product.comment.CommentListViewModel
 import kotlinx.android.synthetic.main.activity_comment_list.*
 import org.koin.android.viewmodel.ext.android.viewModel

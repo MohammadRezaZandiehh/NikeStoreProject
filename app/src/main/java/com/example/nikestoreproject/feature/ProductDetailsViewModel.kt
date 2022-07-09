@@ -3,16 +3,14 @@ package com.example.nikestoreproject.feature
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import com.example.nikestoreproject.common.EXTRA_KEY_DATA
-import com.example.nikestoreproject.common.EXTRA_KEY_ID
 import com.example.nikestoreproject.common.NikeSingleObserver
 import com.example.nikestoreproject.common.asyncNetworkRequest
 import com.example.nikestoreproject.data.Comment
 import com.example.nikestoreproject.data.Product
 import com.example.nikestoreproject.data.repo.CartRepository
 import com.example.nikestoreproject.data.repo.CommentRepository
-import com.sevenlearn.nikestore.common.NikeViewModel
+import com.example.nikestoreproject.common.NikeViewModel
 import io.reactivex.Completable
-import io.reactivex.Single
 
 class ProductDetailsViewModel(
     bundle: Bundle,

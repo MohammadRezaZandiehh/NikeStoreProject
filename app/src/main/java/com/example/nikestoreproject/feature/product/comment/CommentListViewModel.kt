@@ -5,7 +5,7 @@ import com.example.nikestoreproject.common.NikeSingleObserver
 import com.example.nikestoreproject.common.asyncNetworkRequest
 import com.example.nikestoreproject.data.Comment
 import com.example.nikestoreproject.data.repo.CommentRepository
-import com.sevenlearn.nikestore.common.NikeViewModel
+import com.example.nikestoreproject.common.NikeViewModel
 
 
 class CommentListViewModel(productId: Int, commentRepository: CommentRepository) : NikeViewModel() {

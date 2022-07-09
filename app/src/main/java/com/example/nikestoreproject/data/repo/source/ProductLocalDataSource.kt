@@ -9,6 +9,10 @@ class ProductLocalDataSource : ProductDataSource{
         TODO("Not yet implemented")
     }
 
+    override suspend fun getProducts2(sort: Int): List<Product> {
+        TODO("Not yet implemented")
+    }
+
     override fun getFavourite(): Single<List<Product>> {
         TODO("Not yet implemented")
     }

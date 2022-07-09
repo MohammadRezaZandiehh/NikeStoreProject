@@ -4,13 +4,11 @@ import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
 import android.view.View
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_ID
 import com.example.nikestoreproject.common.NikeCompletableObserver
-import com.example.nikestoreproject.common.NikeExceptionMapper
 import com.example.nikestoreproject.common.formatPrice
 import com.example.nikestoreproject.data.Comment
 import com.example.nikestoreproject.feature.ProductDetailsViewModel
@@ -18,9 +16,7 @@ import com.example.nikestoreproject.feature.product.comment.CommentListActivity
 import com.example.nikestoreproject.services.ImageLoadingService
 import com.example.nikestoreproject.view.scroll.ObservableScrollViewCallbacks
 import com.example.nikestoreproject.view.scroll.ScrollState
-import com.google.android.material.snackbar.Snackbar
-import com.sevenlearn.nikestore.common.NikeActivity
-import io.reactivex.Scheduler
+import com.example.nikestoreproject.common.NikeActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

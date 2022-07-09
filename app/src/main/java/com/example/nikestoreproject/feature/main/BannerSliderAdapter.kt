@@ -3,6 +3,7 @@ package com.sevenlearn.nikestore.feature.main
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.nikestoreproject.data.Banner
+import com.example.nikestoreproject.feature.main.BannerFragment
 
 
 class BannerSliderAdapter(fragment: Fragment,val banners:List<Banner>) : FragmentStateAdapter(fragment) {

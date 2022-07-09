@@ -25,6 +25,9 @@
             android:name=".feature.product.ProductDetailActivity"
             android:exported="false" />
         <activity
+            android:name=".feature.shipping.ShippingActivity"
+            android:exported="false" />
+        <activity
             android:name=".feature.main.MainActivity"
             android:exported="true">
                         <intent-filter>

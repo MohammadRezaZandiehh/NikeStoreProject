@@ -1,4 +1,4 @@
-package com.sevenlearn.nikestore.common
+package com.example.nikestoreproject.common
 
 import android.content.Context
 import android.content.Intent
@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.nikestoreproject.R
-import com.example.nikestoreproject.common.NikeException
 import com.example.nikestoreproject.feature.auth.AuthActivity
 import com.google.android.material.snackbar.Snackbar
 import io.reactivex.disposables.CompositeDisposable

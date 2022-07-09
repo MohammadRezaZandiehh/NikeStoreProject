@@ -8,6 +8,8 @@ interface ProductDataSource {
 
     fun getProducts(sort:Int): Single<List<Product>>
 
+    suspend fun getProducts2(sort:Int): List<Product>
+
     fun getFavourite (): Single<List<Product>>
 
     fun addToFavourite (): Completable

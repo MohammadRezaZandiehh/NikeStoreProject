@@ -1,4 +1,4 @@
-package com.sevenlearn.nikestore.feature.main
+package com.example.nikestoreproject.feature.main
 
 import android.os.Bundle
 import android.view.LayoutInflater

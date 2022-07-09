@@ -12,7 +12,7 @@ import com.example.nikestoreproject.feature.common.VIEW_TYPE_LARGE
 import com.example.nikestoreproject.feature.common.VIEW_TYPE_SMALL
 import com.example.nikestoreproject.feature.product.ProductDetailActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.sevenlearn.nikestore.common.NikeActivity
+import com.example.nikestoreproject.common.NikeActivity
 import kotlinx.android.synthetic.main.activity_product_list.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel

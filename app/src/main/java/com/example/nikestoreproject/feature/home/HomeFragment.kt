@@ -16,14 +16,13 @@ import com.example.nikestoreproject.feature.common.ProductListAdapter
 import com.example.nikestoreproject.feature.common.VIEW_TYPE_ROUND
 import com.example.nikestoreproject.feature.list.ProductListActivity
 import com.example.nikestoreproject.feature.product.ProductDetailActivity
-import com.sevenlearn.nikestore.common.NikeFragment
+import com.example.nikestoreproject.common.NikeFragment
 import com.sevenlearn.nikestore.feature.main.BannerSliderAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import timber.log.Timber
-import java.util.*
 import kotlin.collections.ArrayList
 
 class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
@@ -55,7 +54,11 @@ class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
             productListAdapter.products = it as ArrayList<Product>
         }
 
-        homeViewModel.popularProductsLiveData.observe(viewLifecycleOwner) {
+/*        homeViewModel.popularProductsLiveData.observe(viewLifecycleOwner) {
+            productListAdapter2.products = it as ArrayList<Product>
+        }*/
+
+        homeViewModel.popularProductsLiveData2.observe(viewLifecycleOwner){
             productListAdapter2.products = it as ArrayList<Product>
         }
 

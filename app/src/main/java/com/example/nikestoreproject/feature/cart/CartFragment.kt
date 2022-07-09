@@ -14,7 +14,8 @@ import com.example.nikestoreproject.data.CartItem
 import com.example.nikestoreproject.feature.auth.AuthActivity
 import com.example.nikestoreproject.feature.product.ProductDetailActivity
 import com.example.nikestoreproject.services.ImageLoadingService
-import com.sevenlearn.nikestore.common.NikeFragment
+import com.example.nikestoreproject.common.NikeFragment
+import com.example.nikestoreproject.feature.shipping.ShippingActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -80,6 +81,13 @@ class CartFragment : NikeFragment(), CartItemAdapter.CartItemViewCallbacks {
                 }
             } else
                 emptyStateRootView?.visibility = View.GONE
+        }
+
+        payBtn.setOnClickListener {
+            val intent = Intent(requireContext(), ShippingActivity::class.java).apply {
+                putExtra(EXTRA_KEY_DATA, viewModel.purchaseDetailLiveData.value)
+            }
+            startActivity(intent)
         }
     }
 

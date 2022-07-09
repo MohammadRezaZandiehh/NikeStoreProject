@@ -35,12 +35,7 @@ class App : Application() {
         val myModules = module {
             single { createApiServiceInstance() }
             single<ImageLoadingService> { FrescoImageLoadingService() }
-            factory<ProductRepository> {
-                ProductRepositoryImpl(
-                    ProductRemoteDataSource(get()),
-                    ProductLocalDataSource()
-                )
-            }
+            factory<ProductRepository> { ProductRepositoryImpl(ProductRemoteDataSource(get()), ProductLocalDataSource()) }
             factory { (viewType: Int) -> ProductListAdapter(viewType, get()) }
             factory<BannerRepository> { BannerRepositoryImpl(BannerRemoteDataSource(get())) }
             factory<CommentRepository> { CommentRepositoryImpl(CommentRemoteDataSource(get())) }

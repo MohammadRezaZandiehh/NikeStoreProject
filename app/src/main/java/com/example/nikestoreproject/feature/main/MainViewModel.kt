@@ -1,11 +1,10 @@
 package com.example.nikestoreproject.feature.main
 
-import android.R
 import com.example.nikestoreproject.common.NikeSingleObserver
 import com.example.nikestoreproject.data.CartItemCount
 import com.example.nikestoreproject.data.TokenContainer
 import com.example.nikestoreproject.data.repo.CartRepository
-import com.sevenlearn.nikestore.common.NikeViewModel
+import com.example.nikestoreproject.common.NikeViewModel
 import io.reactivex.schedulers.Schedulers
 import org.greenrobot.eventbus.EventBus
 

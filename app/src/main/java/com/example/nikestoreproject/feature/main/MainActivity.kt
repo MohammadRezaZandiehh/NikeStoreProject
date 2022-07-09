@@ -9,7 +9,7 @@ import com.example.nikestoreproject.data.CartItemCount
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.color.MaterialColors
-import com.sevenlearn.nikestore.common.NikeActivity
+import com.example.nikestoreproject.common.NikeActivity
 import com.sevenlearn.nikestore.common.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 import org.greenrobot.eventbus.Subscribe
