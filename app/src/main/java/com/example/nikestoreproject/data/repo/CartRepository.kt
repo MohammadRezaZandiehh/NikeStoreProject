@@ -1,9 +1,9 @@
 package com.example.nikestoreproject.data.repo
 
-import com.example.nikestoreproject.data.AddToCartResponse
-import com.example.nikestoreproject.data.CartItemCount
-import com.example.nikestoreproject.data.CartResponse
-import com.example.nikestoreproject.data.MessageResponse
+import com.example.nikestoreproject.data.model.AddToCartResponse
+import com.example.nikestoreproject.data.model.CartItemCount
+import com.example.nikestoreproject.data.model.CartResponse
+import com.example.nikestoreproject.data.model.MessageResponse
 import io.reactivex.Single
 
 interface CartRepository {

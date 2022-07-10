@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nikestoreproject.R
-import com.example.nikestoreproject.data.Comment
+import com.example.nikestoreproject.data.model.Comment
 
 
 class CommentAdapter(val showAll: Boolean = false) :

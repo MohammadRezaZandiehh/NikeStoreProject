@@ -8,6 +8,10 @@ import com.example.nikestoreproject.data.*
 import com.example.nikestoreproject.data.repo.BannerRepository
 import com.example.nikestoreproject.data.repo.ProductRepository
 import com.example.nikestoreproject.common.NikeViewModel
+import com.example.nikestoreproject.data.model.Banner
+import com.example.nikestoreproject.data.model.Product
+import com.example.nikestoreproject.data.model.SORT_LATEST
+import com.example.nikestoreproject.data.model.SORT_POPULAR
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.launch

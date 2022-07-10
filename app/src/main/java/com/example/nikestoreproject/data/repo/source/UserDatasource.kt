@@ -1,6 +1,6 @@
 package com.example.nikestoreproject.data.repo.source
 
-import com.example.nikestoreproject.data.MessageResponse
+import com.example.nikestoreproject.data.model.MessageResponse
 import com.example.nikestoreproject.data.TokenResponse
 import io.reactivex.Single
 

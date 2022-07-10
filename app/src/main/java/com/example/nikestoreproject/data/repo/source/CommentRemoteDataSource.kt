@@ -1,6 +1,6 @@
 package com.example.nikestoreproject.data.repo.source
 
-import com.example.nikestoreproject.data.Comment
+import com.example.nikestoreproject.data.model.Comment
 import com.example.nikestoreproject.services.http.ApiService
 import io.reactivex.Single
 

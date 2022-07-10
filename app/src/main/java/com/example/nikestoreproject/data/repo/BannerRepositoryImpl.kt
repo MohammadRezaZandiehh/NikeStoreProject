@@ -1,6 +1,6 @@
 package com.example.nikestoreproject.data.repo
 
-import com.example.nikestoreproject.data.Banner
+import com.example.nikestoreproject.data.model.Banner
 import com.example.nikestoreproject.data.repo.source.BannerDataSource
 import io.reactivex.Single
 

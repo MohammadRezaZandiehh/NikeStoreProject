@@ -1,4 +1,4 @@
-package com.example.nikestoreproject.data
+package com.example.nikestoreproject.data.model
 
 import androidx.annotation.StringRes
 

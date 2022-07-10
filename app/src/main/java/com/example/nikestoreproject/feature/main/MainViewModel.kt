@@ -1,7 +1,7 @@
 package com.example.nikestoreproject.feature.main
 
 import com.example.nikestoreproject.common.NikeSingleObserver
-import com.example.nikestoreproject.data.CartItemCount
+import com.example.nikestoreproject.data.model.CartItemCount
 import com.example.nikestoreproject.data.TokenContainer
 import com.example.nikestoreproject.data.repo.CartRepository
 import com.example.nikestoreproject.common.NikeViewModel

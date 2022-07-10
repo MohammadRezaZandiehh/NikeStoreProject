@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.formatPrice
-import com.example.nikestoreproject.data.CartItem
-import com.example.nikestoreproject.data.PurchaseDetail
+import com.example.nikestoreproject.data.model.CartItem
+import com.example.nikestoreproject.data.model.PurchaseDetail
 import com.example.nikestoreproject.services.ImageLoadingService
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_cart.view.*

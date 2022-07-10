@@ -1,8 +1,6 @@
-package com.example.nikestoreproject.data
+package com.example.nikestoreproject.data.model
 
 import android.os.Parcelable
-import androidx.lifecycle.MutableLiveData
-import com.example.nikestoreproject.data.CartItem
 import kotlinx.android.parcel.Parcelize
 
 data class CartResponse(

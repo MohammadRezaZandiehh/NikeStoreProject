@@ -2,6 +2,7 @@ package com.example.nikestoreproject.services.http
 
 import com.example.nikestoreproject.data.*
 import com.example.nikestoreproject.data.TokenContainer
+import com.example.nikestoreproject.data.model.*
 import com.google.gson.JsonObject
 import io.reactivex.Single
 import okhttp3.OkHttpClient

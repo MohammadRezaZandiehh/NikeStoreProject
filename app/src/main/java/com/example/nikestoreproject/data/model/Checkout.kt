@@ -1,4 +1,4 @@
-package com.example.nikestoreproject.data
+package com.example.nikestoreproject.data.model
 
 data class Checkout(
     val payable_price: Int,

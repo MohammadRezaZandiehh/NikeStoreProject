@@ -10,13 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_DATA
 import com.example.nikestoreproject.common.convertDpToPixel
-import com.example.nikestoreproject.data.Product
-import com.example.nikestoreproject.data.SORT_LATEST
+
 import com.example.nikestoreproject.feature.common.ProductListAdapter
 import com.example.nikestoreproject.feature.common.VIEW_TYPE_ROUND
 import com.example.nikestoreproject.feature.list.ProductListActivity
 import com.example.nikestoreproject.feature.product.ProductDetailActivity
 import com.example.nikestoreproject.common.NikeFragment
+import com.example.nikestoreproject.data.model.Product
+import com.example.nikestoreproject.data.model.SORT_LATEST
 import com.sevenlearn.nikestore.feature.main.BannerSliderAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.koin.android.ext.android.inject

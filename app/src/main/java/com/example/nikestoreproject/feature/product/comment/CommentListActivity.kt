@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_ID
-import com.example.nikestoreproject.data.Comment
+import com.example.nikestoreproject.data.model.Comment
 import com.example.nikestoreproject.feature.product.CommentAdapter
 import com.example.nikestoreproject.common.NikeActivity
 import com.sevenlearn.nikestore.feature.product.comment.CommentListViewModel

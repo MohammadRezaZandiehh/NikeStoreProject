@@ -87,15 +87,6 @@ dependencies {
 //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
 
-/*//ViewModel and LiveData
-    def lifecycle_version = "2.2.0"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation "androidx.browser:browser:1.4.0"
 
-    //LifeCycle
-    implementation 'androidx.lifecycle:lifecycle-common:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0'
-    implementation 'android.arch.lifecycle:extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'*/
 }

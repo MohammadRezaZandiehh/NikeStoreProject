@@ -6,13 +6,13 @@ import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_DATA
-import com.example.nikestoreproject.data.Product
 import com.example.nikestoreproject.feature.common.ProductListAdapter
 import com.example.nikestoreproject.feature.common.VIEW_TYPE_LARGE
 import com.example.nikestoreproject.feature.common.VIEW_TYPE_SMALL
 import com.example.nikestoreproject.feature.product.ProductDetailActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.example.nikestoreproject.common.NikeActivity
+import com.example.nikestoreproject.data.model.Product
 import kotlinx.android.synthetic.main.activity_product_list.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel

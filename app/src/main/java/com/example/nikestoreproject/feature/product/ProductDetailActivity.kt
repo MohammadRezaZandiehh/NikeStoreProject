@@ -10,7 +10,7 @@ import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_ID
 import com.example.nikestoreproject.common.NikeCompletableObserver
 import com.example.nikestoreproject.common.formatPrice
-import com.example.nikestoreproject.data.Comment
+import com.example.nikestoreproject.data.model.Comment
 import com.example.nikestoreproject.feature.ProductDetailsViewModel
 import com.example.nikestoreproject.feature.product.comment.CommentListActivity
 import com.example.nikestoreproject.services.ImageLoadingService

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_DATA
 import com.example.nikestoreproject.common.NikeCompletableObserver
-import com.example.nikestoreproject.data.CartItem
+import com.example.nikestoreproject.data.model.CartItem
 import com.example.nikestoreproject.feature.auth.AuthActivity
 import com.example.nikestoreproject.feature.product.ProductDetailActivity
 import com.example.nikestoreproject.services.ImageLoadingService

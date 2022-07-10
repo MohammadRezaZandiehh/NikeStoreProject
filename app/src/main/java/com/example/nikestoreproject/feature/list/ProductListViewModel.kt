@@ -4,9 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.NikeSingleObserver
 import com.example.nikestoreproject.common.asyncNetworkRequest
-import com.example.nikestoreproject.data.Product
 import com.example.nikestoreproject.data.repo.ProductRepository
 import com.example.nikestoreproject.common.NikeViewModel
+import com.example.nikestoreproject.data.model.Product
 
 class ProductListViewModel(var sort: Int, val productRepository: ProductRepository) :
     NikeViewModel() {

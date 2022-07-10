@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.convertDpToPixel
-import com.example.nikestoreproject.data.CartItemCount
+import com.example.nikestoreproject.data.model.CartItemCount
 import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.color.MaterialColors

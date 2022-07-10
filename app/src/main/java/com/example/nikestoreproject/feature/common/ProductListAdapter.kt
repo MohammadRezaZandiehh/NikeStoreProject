@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.formatPrice
 import com.example.nikestoreproject.common.implementSpringAnimationTrait
-import com.example.nikestoreproject.data.Product
+import com.example.nikestoreproject.data.model.Product
 import com.example.nikestoreproject.services.ImageLoadingService
 import com.sevenlearn.nikestore.view.NikeImageView
 import java.lang.IllegalStateException

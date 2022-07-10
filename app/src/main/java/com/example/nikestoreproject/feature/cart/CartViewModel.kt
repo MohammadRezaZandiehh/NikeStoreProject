@@ -7,6 +7,7 @@ import com.example.nikestoreproject.common.asyncNetworkRequest
 import com.example.nikestoreproject.data.*
 import com.example.nikestoreproject.data.repo.CartRepository
 import com.example.nikestoreproject.common.NikeViewModel
+import com.example.nikestoreproject.data.model.*
 import io.reactivex.Completable
 import org.greenrobot.eventbus.EventBus
 import timber.log.Timber

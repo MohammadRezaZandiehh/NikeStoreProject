@@ -4,6 +4,10 @@ import android.app.Application
 import android.content.SharedPreferences
 import android.os.Bundle
 import com.example.nikestoreproject.data.repo.*
+import com.example.nikestoreproject.data.repo.order.OrderDataSource
+import com.example.nikestoreproject.data.repo.order.OrderRemoteDataSource
+import com.example.nikestoreproject.data.repo.order.OrderRepository
+import com.example.nikestoreproject.data.repo.order.OrderRepositoryImpl
 import com.example.nikestoreproject.data.repo.source.*
 import com.example.nikestoreproject.feature.ProductDetailsViewModel
 import com.example.nikestoreproject.feature.auth.AuthViewModel
@@ -16,6 +20,8 @@ import com.example.nikestoreproject.services.http.createApiServiceInstance
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.example.nikestoreproject.feature.home.HomeViewModel
 import com.example.nikestoreproject.feature.main.MainViewModel
+import com.example.nikestoreproject.feature.shipping.ShippingActivity
+import com.example.nikestoreproject.feature.shipping.ShippingViewModel
 import com.sevenlearn.nikestore.feature.product.comment.CommentListViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.viewmodel.dsl.viewModel
@@ -44,6 +50,8 @@ class App : Application() {
             single<SharedPreferences> { this@App.getSharedPreferences("app_settings", MODE_PRIVATE) }
             single<UserRepository> { UserRepositoryImpl(UserLocalDataSource(get()), UserRemoteDataSource(get())) }
             single { UserLocalDataSource(get()) }
+            single<OrderRepository> { OrderRepositoryImpl(OrderRemoteDataSource(get())) }
+
 
             viewModel { HomeViewModel(get(), get()) }
             viewModel { (bundle: Bundle) -> ProductDetailsViewModel(bundle, get(), get()) }
@@ -52,6 +60,7 @@ class App : Application() {
             viewModel { AuthViewModel(get()) }
             viewModel { CartViewModel(get()) }
             viewModel { MainViewModel(get()) }
+            viewModel { ShippingViewModel(get()) }
         }
 
         startKoin {
