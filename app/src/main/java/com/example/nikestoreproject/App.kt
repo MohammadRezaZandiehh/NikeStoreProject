@@ -12,6 +12,7 @@ import com.example.nikestoreproject.data.repo.source.*
 import com.example.nikestoreproject.feature.ProductDetailsViewModel
 import com.example.nikestoreproject.feature.auth.AuthViewModel
 import com.example.nikestoreproject.feature.cart.CartViewModel
+import com.example.nikestoreproject.feature.checkout.CheckoutViewModel
 import com.example.nikestoreproject.feature.common.ProductListAdapter
 import com.example.nikestoreproject.feature.list.ProductListViewModel
 import com.example.nikestoreproject.services.FrescoImageLoadingService
@@ -41,14 +42,29 @@ class App : Application() {
         val myModules = module {
             single { createApiServiceInstance() }
             single<ImageLoadingService> { FrescoImageLoadingService() }
-            factory<ProductRepository> { ProductRepositoryImpl(ProductRemoteDataSource(get()), ProductLocalDataSource()) }
+            factory<ProductRepository> {
+                ProductRepositoryImpl(
+                    ProductRemoteDataSource(get()),
+                    ProductLocalDataSource()
+                )
+            }
             factory { (viewType: Int) -> ProductListAdapter(viewType, get()) }
             factory<BannerRepository> { BannerRepositoryImpl(BannerRemoteDataSource(get())) }
             factory<CommentRepository> { CommentRepositoryImpl(CommentRemoteDataSource(get())) }
             factory<CartRepository> { CartRepositoryImpl(CartRemoteDataSource(get())) }
 
-            single<SharedPreferences> { this@App.getSharedPreferences("app_settings", MODE_PRIVATE) }
-            single<UserRepository> { UserRepositoryImpl(UserLocalDataSource(get()), UserRemoteDataSource(get())) }
+            single<SharedPreferences> {
+                this@App.getSharedPreferences(
+                    "app_settings",
+                    MODE_PRIVATE
+                )
+            }
+            single<UserRepository> {
+                UserRepositoryImpl(
+                    UserLocalDataSource(get()),
+                    UserRemoteDataSource(get())
+                )
+            }
             single { UserLocalDataSource(get()) }
             single<OrderRepository> { OrderRepositoryImpl(OrderRemoteDataSource(get())) }
 
@@ -61,6 +77,7 @@ class App : Application() {
             viewModel { CartViewModel(get()) }
             viewModel { MainViewModel(get()) }
             viewModel { ShippingViewModel(get()) }
+            viewModel { (orderId: Int) -> CheckoutViewModel(orderId, get()) }
         }
 
         startKoin {

@@ -46,22 +46,22 @@ class ShippingActivity : NikeActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : NikeSingleObserver<SubmitOrderResult>(compositeDisposable) {
                     override fun onSuccess(t: SubmitOrderResult) {
-                        if (t.bank_gateway_url.isNotEmpty()){
+                        if (t.bank_gateway_url.isNotEmpty()) {
                             openUrlInCustomTab(this@ShippingActivity, t.bank_gateway_url)
-                    } else {
-                        startActivity(
-                            Intent(this@ShippingActivity, CheckOutActivity::class.java).apply {
-                                putExtra(EXTRA_KEY_ID, t.order_id)
-                            }
-                        )
+                        } else {
+                            startActivity(
+                                Intent(this@ShippingActivity, CheckOutActivity::class.java).apply {
+                                    putExtra(EXTRA_KEY_ID, t.order_id)
+                                }
+                            )
+                        }
+                        finish()
+
                     }
-                    finish()
+                })
+        }
 
-                }
-        })
+        onlinePaymentBtn.setOnClickListener(onClickListener)
+        codBtn.setOnClickListener(onClickListener)
     }
-
-    onlinePaymentBtn.setOnClickListener(onClickListener)
-    codBtn.setOnClickListener(onClickListener)
-}
 }
