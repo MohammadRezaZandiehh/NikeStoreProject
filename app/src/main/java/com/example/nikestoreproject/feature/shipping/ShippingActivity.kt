@@ -50,10 +50,7 @@ class ShippingActivity : NikeActivity() {
                             openUrlInCustomTab(this@ShippingActivity, t.bank_gateway_url)
                     } else {
                         startActivity(
-                            Intent(
-                                this@ShippingActivity,
-                                CheckOutActivity::class.java
-                            ).apply {
+                            Intent(this@ShippingActivity, CheckOutActivity::class.java).apply {
                                 putExtra(EXTRA_KEY_ID, t.order_id)
                             }
                         )

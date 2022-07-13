@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.checkout.CheckOutActivity">
+    tools:context=".checkout.CheckOutActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.sevenlearn.nikestore.view.NikeToolbar
+        <com.example.nikestoreproject.view.NikeToolbar
             android:layout_width="match_parent"
             android:layout_height="56dp"
             app:nt_title="@string/checkoutToolbarTitle" />

@@ -100,7 +100,7 @@ fun openUrlInCustomTab(context: Context, url: String) {
         intentBuilder.setStartAnimations(context, android.R.anim.fade_in, android.R.anim.fade_out)
         intentBuilder.setExitAnimations(context, android.R.anim.fade_in, android.R.anim.fade_out)
         val customTabsIntent = intentBuilder.build()
-        customTabsIntent.intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY
+        customTabsIntent.intent.flags = Intent.FLAG_ACTIVITY_NO_HISTORY                             /*nokte dare in khat daghighe 21*/
         customTabsIntent.launchUrl(context, uri)
 
     } catch (e: Exception) {
