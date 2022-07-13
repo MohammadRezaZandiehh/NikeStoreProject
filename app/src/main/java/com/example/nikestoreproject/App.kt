@@ -21,6 +21,7 @@ import com.example.nikestoreproject.services.http.createApiServiceInstance
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.example.nikestoreproject.feature.home.HomeViewModel
 import com.example.nikestoreproject.feature.main.MainViewModel
+import com.example.nikestoreproject.feature.profile.ProfileViewModel
 import com.example.nikestoreproject.feature.shipping.ShippingActivity
 import com.example.nikestoreproject.feature.shipping.ShippingViewModel
 import com.sevenlearn.nikestore.feature.product.comment.CommentListViewModel
@@ -78,6 +79,7 @@ class App : Application() {
             viewModel { MainViewModel(get()) }
             viewModel { ShippingViewModel(get()) }
             viewModel { (orderId: Int) -> CheckoutViewModel(orderId, get()) }
+            viewModel { ProfileViewModel(get()) }
         }
 
         startKoin {
