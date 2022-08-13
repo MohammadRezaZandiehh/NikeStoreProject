@@ -2,20 +2,22 @@ package com.example.nikestoreproject.feature
 
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
-import com.example.nikestoreproject.common.EXTRA_KEY_DATA
-import com.example.nikestoreproject.common.NikeSingleObserver
-import com.example.nikestoreproject.common.asyncNetworkRequest
+import com.example.nikestoreproject.common.*
 import com.example.nikestoreproject.data.model.Comment
+import com.example.nikestoreproject.data.model.Product
 import com.example.nikestoreproject.data.repo.CartRepository
 import com.example.nikestoreproject.data.repo.CommentRepository
-import com.example.nikestoreproject.common.NikeViewModel
-import com.example.nikestoreproject.data.model.Product
+import com.example.nikestoreproject.data.repo.ProductRepository
 import io.reactivex.Completable
+import io.reactivex.Scheduler
+import io.reactivex.schedulers.Schedulers
+
 
 class ProductDetailsViewModel(
     bundle: Bundle,
     commentRepository: CommentRepository,
-    val cartRepository: CartRepository
+    private val cartRepository: CartRepository,
+    private val productRepository: ProductRepository
 ) : NikeViewModel() {
 
     val productLiveData = MutableLiveData<Product>()
@@ -34,6 +36,28 @@ class ProductDetailsViewModel(
             })
     }
 
-    fun onAddToCartBtn():Completable = cartRepository.addToCart(productLiveData.value!!.id).ignoreElement()
+    fun onAddToCartBtn(): Completable =
+        cartRepository.addToCart(productLiveData.value!!.id).ignoreElement()
 
+    fun addToFavourite(product: Product) {
+        if (product.isFavorite) {
+            productRepository.addToFavourite(product)
+                .subscribeOn(Schedulers.io())
+                .subscribe(object : NikeCompletableObserver(compositeDisposable) {
+                    override fun onComplete() {
+                        product.isFavorite = false
+                    }
+
+                })
+        }else{
+            productRepository.addToFavourite(product)
+                .subscribeOn(Schedulers.io())
+                .subscribe(object : NikeCompletableObserver(compositeDisposable) {
+                    override fun onComplete() {
+                        product.isFavorite = true
+                    }
+
+                })
+        }
+    }
 }

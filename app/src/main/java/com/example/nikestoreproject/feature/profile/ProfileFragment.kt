@@ -1,4 +1,4 @@
-package com.sevenlearn.nikestore.feature.profile
+package com.example.nikestoreproject.feature.profile
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,10 +8,11 @@ import android.view.ViewGroup
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.NikeFragment
 import com.example.nikestoreproject.feature.auth.AuthActivity
-import com.example.nikestoreproject.feature.profile.ProfileViewModel
+import com.example.nikestoreproject.feature.favourite.FavoriteProductsActivity
+import com.example.nikestoreproject.feature.order.OrderHistoryActivity
+import kotlinx.android.synthetic.main.activity_check_out.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.android.ext.android.inject
-import org.koin.java.KoinJavaComponent.inject
 
 
 class ProfileFragment: NikeFragment() {
@@ -23,6 +24,19 @@ class ProfileFragment: NikeFragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_profile,container,false)
     }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        favoriteProductsBtn.setOnClickListener {
+            startActivity(Intent(requireContext(), FavoriteProductsActivity::class.java))
+        }
+
+        orderHistoryBtnInProfile.setOnClickListener {
+            startActivity(Intent(context, OrderHistoryActivity::class.java))
+        }
+    }
+
 
     override fun onResume() {
         super.onResume()

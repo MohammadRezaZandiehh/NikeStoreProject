@@ -2,6 +2,7 @@ package com.example.nikestoreproject.feature.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.nikestoreproject.common.NikeCompletableObserver
 import com.example.nikestoreproject.common.NikeSingleObserver
 import com.example.nikestoreproject.common.asyncNetworkRequest
 import com.example.nikestoreproject.data.*
@@ -16,7 +17,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.launch
 
-class HomeViewModel(productRepository: ProductRepository, bannerRepository: BannerRepository) : NikeViewModel() {
+class HomeViewModel(private val productRepository: ProductRepository,
+                    bannerRepository: BannerRepository) : NikeViewModel() {
 /*
     val productsLiveData = MutableLiveData<List<Product>>()
     val popularProductsLiveData = MutableLiveData<List<Product>>()
@@ -99,6 +101,25 @@ class HomeViewModel(productRepository: ProductRepository, bannerRepository: Bann
                     bannersLiveData.value=t
                 }
             })
+    }
+
+    fun addProductToFavorites(product: Product) {
+        if (product.isFavorite)
+            productRepository.deleteFromFavourite(product)
+                .subscribeOn(Schedulers.io())
+                .subscribe(object : NikeCompletableObserver(compositeDisposable) {
+                    override fun onComplete() {
+                        product.isFavorite = false
+                    }
+                })
+        else
+            productRepository.addToFavourite(product)
+                .subscribeOn(Schedulers.io())
+                .subscribe(object : NikeCompletableObserver(compositeDisposable) {
+                    override fun onComplete() {
+                        product.isFavorite = true
+                    }
+                })
     }
 }
 

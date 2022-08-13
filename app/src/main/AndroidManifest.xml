@@ -32,6 +32,12 @@
             android:name=".feature.list.ProductListActivity"
             android:exported="false" />
         <activity
+            android:name=".feature.favourite.FavoriteProductsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.order.OrderHistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".feature.product.comment.CommentListActivity"
             android:exported="false" />
         <activity

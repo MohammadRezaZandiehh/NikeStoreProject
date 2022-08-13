@@ -17,6 +17,7 @@ import com.example.nikestoreproject.services.ImageLoadingService
 import com.example.nikestoreproject.view.scroll.ObservableScrollViewCallbacks
 import com.example.nikestoreproject.view.scroll.ScrollState
 import com.example.nikestoreproject.common.NikeActivity
+import com.example.nikestoreproject.data.model.Product
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -45,6 +46,15 @@ class ProductDetailActivity : NikeActivity() {
             previousPriceTv.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             currentPriceTv.text = formatPrice(it.price)
             toolbarTitleTv.text = it.title
+
+            if (it.isFavorite)
+                favoriteBtn.setImageResource(R.drawable.ic_favorite_fill)
+            else
+                favoriteBtn.setImageResource(R.drawable.ic_favorites)
+
+            favoriteBtn.setOnClickListener { view ->
+                clickedOnFavouriteBtn(it)
+            }
         }
 
         productDetailViewModel.progressBarLiveData.observe(this) {
@@ -71,7 +81,7 @@ class ProductDetailActivity : NikeActivity() {
 
     }
 
-    fun initViews() {
+    private fun initViews() {
         commentsRv.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         commentsRv.adapter = commentAdapter
         commentsRv.isNestedScrollingEnabled = false
@@ -110,12 +120,16 @@ class ProductDetailActivity : NikeActivity() {
                     }
                 })
         }
-
     }
 
     override fun onDestroy() {
         super.onDestroy()
         compositeDisposable.clear()
+    }
+
+    private fun clickedOnFavouriteBtn(product: Product){
+//        product.isFavorite = !product.isFavorite
+        productDetailViewModel.addToFavourite(product)
     }
 }
 

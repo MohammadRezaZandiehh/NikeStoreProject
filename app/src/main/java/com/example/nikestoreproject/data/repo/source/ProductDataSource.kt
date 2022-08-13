@@ -10,11 +10,11 @@ interface ProductDataSource {
 
     suspend fun getProducts2(sort:Int): List<Product>
 
-    fun getFavourite (): Single<List<Product>>
+    fun getFavoriteProducts (): Single<List<Product>>
 
-    fun addToFavourite (): Completable
+    fun addToFavourite (product: Product): Completable
 
-    fun deleteFromFavourite(): Completable
+    fun deleteFromFavourite(product: Product): Completable
 }
 
 /*

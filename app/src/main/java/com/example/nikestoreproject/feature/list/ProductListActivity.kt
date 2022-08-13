@@ -19,7 +19,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import timber.log.Timber
 
-class ProductListActivity : NikeActivity(), ProductListAdapter.OnProductClickListener {
+class ProductListActivity : NikeActivity(), ProductListAdapter.ProductEventListener {
 
     val viewModel: ProductListViewModel by viewModel {
         parametersOf(
@@ -37,7 +37,7 @@ class ProductListActivity : NikeActivity(), ProductListAdapter.OnProductClickLis
         val gridLayoutManager = GridLayoutManager(this, 2)
         productsRv.layoutManager = gridLayoutManager
         productsRv.adapter = productListAdapter
-        productListAdapter.onProductClickListener = this
+        productListAdapter.productEventListener = this
         viewTypeChangerBtn.setOnClickListener {
             if (productListAdapter.viewType == VIEW_TYPE_SMALL) {
                 viewTypeChangerBtn.setImageResource(R.drawable.ic_view_type_large)
@@ -90,5 +90,9 @@ class ProductListActivity : NikeActivity(), ProductListAdapter.OnProductClickLis
         startActivity(Intent(this, ProductDetailActivity::class.java).apply {
             putExtra(EXTRA_KEY_DATA, product)
         })
+    }
+
+    override fun onFavoriteBtnClick(product: Product) {
+        viewModel.addProductToFavourite(product)
     }
 }

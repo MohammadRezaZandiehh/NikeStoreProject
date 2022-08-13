@@ -2,6 +2,7 @@ package com.example.nikestoreproject.data.repo.order
 
 import com.example.nikestoreproject.data.SubmitOrderResult
 import com.example.nikestoreproject.data.model.Checkout
+import com.example.nikestoreproject.data.model.OrderHistoryItem
 import io.reactivex.Single
 
 interface OrderDataSource {
@@ -16,4 +17,6 @@ interface OrderDataSource {
     ): Single<SubmitOrderResult>
 
     fun checkout(orderId: Int):Single<Checkout>
+
+    fun list():Single<List<OrderHistoryItem>>
 }
