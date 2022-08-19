@@ -1,4 +1,4 @@
-package com.sevenlearn.nikestore.view
+package com.example.nikestoreproject.view
 
 import android.content.Context
 import android.util.AttributeSet

@@ -48,29 +48,14 @@ class App : Application() {
             single { createApiServiceInstance() }
             single<ImageLoadingService> { FrescoImageLoadingService() }
             single { Room.databaseBuilder(this@App,AppDatabase::class.java,"db_app").build() }
-            factory<ProductRepository> {
-                ProductRepositoryImpl(
-                    ProductRemoteDataSource(get()),
-                    get<AppDatabase>().productDao()
-                )
-            }
+            factory<ProductRepository> { ProductRepositoryImpl(ProductRemoteDataSource(get()), get<AppDatabase>().productDao()) }
             factory { (viewType: Int) -> ProductListAdapter(viewType, get()) }
             factory<BannerRepository> { BannerRepositoryImpl(BannerRemoteDataSource(get())) }
             factory<CommentRepository> { CommentRepositoryImpl(CommentRemoteDataSource(get())) }
             factory<CartRepository> { CartRepositoryImpl(CartRemoteDataSource(get())) }
 
-            single<SharedPreferences> {
-                this@App.getSharedPreferences(
-                    "app_settings",
-                    MODE_PRIVATE
-                )
-            }
-            single<UserRepository> {
-                UserRepositoryImpl(
-                    UserLocalDataSource(get()),
-                    UserRemoteDataSource(get())
-                )
-            }
+            single<SharedPreferences> { this@App.getSharedPreferences("app_settings", MODE_PRIVATE) }
+            single<UserRepository> { UserRepositoryImpl(UserLocalDataSource(get()), UserRemoteDataSource(get())) }
             single { UserLocalDataSource(get()) }
             single<OrderRepository> { OrderRepositoryImpl(OrderRemoteDataSource(get())) }
 

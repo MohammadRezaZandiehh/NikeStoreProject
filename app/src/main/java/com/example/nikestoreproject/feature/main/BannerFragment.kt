@@ -9,7 +9,7 @@ import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.EXTRA_KEY_DATA
 import com.example.nikestoreproject.data.model.Banner
 import com.example.nikestoreproject.services.ImageLoadingService
-import com.sevenlearn.nikestore.view.NikeImageView
+import com.example.nikestoreproject.view.NikeImageView
 import org.koin.android.ext.android.inject
 import java.lang.IllegalStateException
 

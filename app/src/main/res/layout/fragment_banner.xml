@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.sevenlearn.nikestore.view.NikeImageView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.nikestoreproject.view.NikeImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:roundedCornerRadius="12dp"
@@ -7,4 +7,4 @@
     android:paddingEnd="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</com.sevenlearn.nikestore.view.NikeImageView>
+</com.example.nikestoreproject.view.NikeImageView>

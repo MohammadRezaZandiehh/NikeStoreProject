@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Product(
     val discount: Int,
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     val image: String,
     val previous_price: Int,

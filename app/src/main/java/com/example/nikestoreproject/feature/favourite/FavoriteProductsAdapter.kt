@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.data.model.Product
 import com.example.nikestoreproject.services.ImageLoadingService
-import com.sevenlearn.nikestore.view.NikeImageView
+import com.example.nikestoreproject.view.NikeImageView
 
 class FavoriteProductsAdapter(
     val products: MutableList<Product>,

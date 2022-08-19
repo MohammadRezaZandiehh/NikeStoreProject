@@ -10,7 +10,7 @@ import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.convertDpToPixel
 import com.example.nikestoreproject.common.formatPrice
 import com.example.nikestoreproject.data.model.OrderHistoryItem
-import com.sevenlearn.nikestore.view.NikeImageView
+import com.example.nikestoreproject.view.NikeImageView
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_order_history.view.*
 

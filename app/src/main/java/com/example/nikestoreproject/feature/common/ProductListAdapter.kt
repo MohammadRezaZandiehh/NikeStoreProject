@@ -12,7 +12,7 @@ import com.example.nikestoreproject.common.formatPrice
 import com.example.nikestoreproject.common.implementSpringAnimationTrait
 import com.example.nikestoreproject.data.model.Product
 import com.example.nikestoreproject.services.ImageLoadingService
-import com.sevenlearn.nikestore.view.NikeImageView
+import com.example.nikestoreproject.view.NikeImageView
 import java.lang.IllegalStateException
 
 const val VIEW_TYPE_ROUND = 0
@@ -34,11 +34,11 @@ class ProductListAdapter(
         }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val productIv: NikeImageView = itemView.findViewById(R.id.productIv)
-        val titleTv: TextView = itemView.findViewById(R.id.productTitleTv)
-        val currentPriceTv: TextView = itemView.findViewById(R.id.currentPriceTv)
-        val previousPriceTv: TextView = itemView.findViewById(R.id.previousPriceTv)
-        val favoriteBtn: ImageView = itemView.findViewById(R.id.favoriteBtn)
+        private val productIv: NikeImageView = itemView.findViewById(R.id.productIv)
+        private val titleTv: TextView = itemView.findViewById(R.id.productTitleTv)
+        private val currentPriceTv: TextView = itemView.findViewById(R.id.currentPriceTv)
+        private val previousPriceTv: TextView = itemView.findViewById(R.id.previousPriceTv)
+        private val favoriteBtn: ImageView = itemView.findViewById(R.id.favoriteBtn)
 
         fun bindProduct(product: Product) {
             imageLoadingService.load(productIv, product.image)

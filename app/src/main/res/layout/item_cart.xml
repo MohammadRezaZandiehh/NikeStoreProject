@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         tools:minHeight="200dp">
 
-        <com.sevenlearn.nikestore.view.NikeImageView
+        <com.example.nikestoreproject.view.NikeImageView
             android:id="@+id/productIv"
             android:layout_width="100dp"
             android:layout_height="100dp"
