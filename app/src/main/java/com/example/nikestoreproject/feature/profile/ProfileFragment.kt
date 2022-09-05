@@ -1,4 +1,4 @@
-package com.sevenlearn.nikestore.feature.profile
+package com.example.nikestoreproject.feature.profile
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.NikeFragment
 import com.example.nikestoreproject.feature.auth.AuthActivity
-import com.example.nikestoreproject.feature.profile.ProfileViewModel
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.android.ext.android.inject
-import org.koin.java.KoinJavaComponent.inject
 
 
 class ProfileFragment: NikeFragment() {
@@ -21,8 +19,18 @@ class ProfileFragment: NikeFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_profile,container,false)
+        return inflater.inflate(R.layout.fragment_profile, container, false)
     }
+/*    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        favoriteProductsBtn.setOnClickListener {
+            startActivity(Intent(requireContext(), FavoriteProductsActivity::class.java))
+        }
+
+        orderHistoryBtn.setOnClickListener {
+            startActivity(Intent(context, OrderHistoryActivity::class.java))
+        }
+    }*/
 
     override fun onResume() {
         super.onResume()
@@ -43,8 +51,9 @@ class ProfileFragment: NikeFragment() {
             authBtn.setOnClickListener {
                 startActivity(Intent(requireContext(), AuthActivity::class.java))
             }
-            authBtn.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.ic_sign_in,0)
-            usernameTv.text=getString(R.string.guest_user)
+            authBtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_sign_in, 0)
+            usernameTv.text = getString(R.string.guest_user)
+
         }
     }
 }
