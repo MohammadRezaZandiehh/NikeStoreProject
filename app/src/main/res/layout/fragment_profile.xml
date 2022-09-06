@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 style="@style/ProfileLinks"
                 android:text="@string/signIn"
-                app:drawableStartCompat="@drawable/ic_sign_in" />
+                app:drawableStartCompat="@drawable/ic_sign_in"/>
 
 
         </LinearLayout>

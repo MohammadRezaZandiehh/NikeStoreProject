@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.android.ext.android.inject
 
 
-class ProfileFragment: NikeFragment() {
+class ProfileFragment : NikeFragment() {
     private val viewModel: ProfileViewModel by inject()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,7 +40,7 @@ class ProfileFragment: NikeFragment() {
     private fun checkAuthState() {
         if (viewModel.isSignedIn) {
             authBtn.text = getString(R.string.signOut)
-            authBtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_sign_out, 0)
+            authBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_sign_out, 0, 0, 0)
             usernameTv.text = viewModel.username
             authBtn.setOnClickListener {
                 viewModel.signOut()
@@ -51,7 +51,7 @@ class ProfileFragment: NikeFragment() {
             authBtn.setOnClickListener {
                 startActivity(Intent(requireContext(), AuthActivity::class.java))
             }
-            authBtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_sign_in, 0)
+            authBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_sign_in, 0, 0, 0)
             usernameTv.text = getString(R.string.guest_user)
 
         }
