@@ -2,6 +2,7 @@ package com.example.nikestoreproject.data.repo.order
 
 import com.example.nikestoreproject.data.SubmitOrderResult
 import com.example.nikestoreproject.data.model.Checkout
+import com.example.nikestoreproject.data.model.OrderHistoryItem
 import com.example.nikestoreproject.services.http.ApiService
 import com.google.gson.JsonObject
 import io.reactivex.Single
@@ -28,4 +29,6 @@ class OrderRemoteDataSource(private val apiService: ApiService) : OrderDataSourc
     override fun checkout(orderId: Int): Single<Checkout> {
         return apiService.checkout(orderId)
     }
+    override fun list(): Single<List<OrderHistoryItem>> = apiService.orders()
+
 }

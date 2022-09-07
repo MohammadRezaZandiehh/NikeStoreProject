@@ -2,6 +2,7 @@ package com.example.nikestoreproject.data.repo.order
 
 import com.example.nikestoreproject.data.SubmitOrderResult
 import com.example.nikestoreproject.data.model.Checkout
+import com.example.nikestoreproject.data.model.OrderHistoryItem
 import io.reactivex.Single
 
 class OrderRepositoryImpl(private val orderDataSource: OrderDataSource) : OrderRepository {
@@ -21,4 +22,6 @@ class OrderRepositoryImpl(private val orderDataSource: OrderDataSource) : OrderR
     override fun checkout(orderId: Int): Single<Checkout> {
         return orderDataSource.checkout(orderId)
     }
+
+    override fun list(): Single<List<OrderHistoryItem>> =orderDataSource.list()
 }

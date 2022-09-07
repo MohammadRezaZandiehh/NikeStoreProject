@@ -9,6 +9,7 @@ import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.NikeFragment
 import com.example.nikestoreproject.feature.auth.AuthActivity
 import com.example.nikestoreproject.feature.favourite.FavouriteProductActivity
+import com.example.nikestoreproject.feature.order.OrderHistoryActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.android.ext.android.inject
 
@@ -27,6 +28,10 @@ class ProfileFragment : NikeFragment() {
         super.onViewCreated(view, savedInstanceState)
         favoriteProductsBtn.setOnClickListener {
             startActivity(Intent(requireContext(), FavouriteProductActivity::class.java))
+        }
+
+        orderHistoryBtn.setOnClickListener {
+            startActivity(Intent(requireContext(), OrderHistoryActivity::class.java))
         }
 
 /*        orderHistoryBtn.setOnClickListener {
