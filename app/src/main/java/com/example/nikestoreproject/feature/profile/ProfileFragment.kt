@@ -8,11 +8,12 @@ import android.view.ViewGroup
 import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.NikeFragment
 import com.example.nikestoreproject.feature.auth.AuthActivity
+import com.example.nikestoreproject.feature.favourite.FavouriteProductActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 import org.koin.android.ext.android.inject
 
 
-class ProfileFragment: NikeFragment() {
+class ProfileFragment : NikeFragment() {
     private val viewModel: ProfileViewModel by inject()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,16 +22,17 @@ class ProfileFragment: NikeFragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
-/*    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         favoriteProductsBtn.setOnClickListener {
-            startActivity(Intent(requireContext(), FavoriteProductsActivity::class.java))
+            startActivity(Intent(requireContext(), FavouriteProductActivity::class.java))
         }
 
-        orderHistoryBtn.setOnClickListener {
+/*        orderHistoryBtn.setOnClickListener {
             startActivity(Intent(context, OrderHistoryActivity::class.java))
-        }
-    }*/
+        }*/
+    }
 
     override fun onResume() {
         super.onResume()
@@ -40,7 +42,7 @@ class ProfileFragment: NikeFragment() {
     private fun checkAuthState() {
         if (viewModel.isSignedIn) {
             authBtn.text = getString(R.string.signOut)
-            authBtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_sign_out, 0)
+            authBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_sign_in, 0, 0, 0)
             usernameTv.text = viewModel.username
             authBtn.setOnClickListener {
                 viewModel.signOut()
@@ -51,7 +53,7 @@ class ProfileFragment: NikeFragment() {
             authBtn.setOnClickListener {
                 startActivity(Intent(requireContext(), AuthActivity::class.java))
             }
-            authBtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_sign_in, 0)
+            authBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_sign_in, 0, 0, 0)
             usernameTv.text = getString(R.string.guest_user)
 
         }

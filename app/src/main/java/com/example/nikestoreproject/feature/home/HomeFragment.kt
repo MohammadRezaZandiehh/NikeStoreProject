@@ -26,7 +26,7 @@ import org.koin.core.parameter.parametersOf
 import timber.log.Timber
 import kotlin.collections.ArrayList
 
-class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
+class HomeFragment : NikeFragment(), ProductListAdapter.ProductEventListener {
 
     private val homeViewModel: HomeViewModel by viewModel()
     private val productListAdapter: ProductListAdapter by inject { parametersOf(VIEW_TYPE_ROUND) }
@@ -47,8 +47,8 @@ class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
             LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         latestProductsRv.adapter = productListAdapter
         mostPopularProductsRv.adapter = productListAdapter2
-        productListAdapter.onProductClickListener = this
-        productListAdapter2.onProductClickListener = this
+        productListAdapter.productEventListener = this
+        productListAdapter2.productEventListener = this
 
         homeViewModel.productsLiveData.observe(viewLifecycleOwner) {
             Timber.i(it.toString())
@@ -59,7 +59,7 @@ class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
             productListAdapter2.products = it as ArrayList<Product>
         }*/
 
-        homeViewModel.popularProductsLiveData2.observe(viewLifecycleOwner){
+        homeViewModel.popularProductsLiveData.observe(viewLifecycleOwner){
             productListAdapter2.products = it as ArrayList<Product>
         }
 
@@ -117,5 +117,9 @@ class HomeFragment : NikeFragment(), ProductListAdapter.OnProductClickListener {
         startActivity(Intent(requireContext(), ProductDetailActivity::class.java).apply {
             putExtra(EXTRA_KEY_DATA, product)
         })
+    }
+
+    override fun onFavouriteBtnClick(product: Product) {
+        homeViewModel.addProductToFavorites(product)
     }
 }

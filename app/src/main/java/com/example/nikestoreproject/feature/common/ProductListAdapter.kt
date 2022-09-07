@@ -4,6 +4,7 @@ import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nikestoreproject.R
@@ -24,7 +25,7 @@ class ProductListAdapter(
 ) :
     RecyclerView.Adapter<ProductListAdapter.ViewHolder>() {
 
-    var onProductClickListener: OnProductClickListener? = null
+    var productEventListener: ProductEventListener? = null
 
     var products = ArrayList<Product>()
         set(value) {
@@ -33,10 +34,11 @@ class ProductListAdapter(
         }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val productIv: NikeImageView = itemView.findViewById(R.id.productIv)
-        val titleTv: TextView = itemView.findViewById(R.id.productTitleTv)
-        val currentPriceTv: TextView = itemView.findViewById(R.id.currentPriceTv)
-        val previousPriceTv: TextView = itemView.findViewById(R.id.previousPriceTv)
+        private val productIv: NikeImageView = itemView.findViewById(R.id.productIv)
+        private val titleTv: TextView = itemView.findViewById(R.id.productTitleTv)
+        private val currentPriceTv: TextView = itemView.findViewById(R.id.currentPriceTv)
+        private val previousPriceTv: TextView = itemView.findViewById(R.id.previousPriceTv)
+        private val favoriteBtn: ImageView = itemView.findViewById(R.id.favoriteBtn)
 
         fun bindProduct(product: Product) {
             imageLoadingService.load(productIv, product.image)
@@ -46,7 +48,18 @@ class ProductListAdapter(
             previousPriceTv.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             itemView.implementSpringAnimationTrait()
             itemView.setOnClickListener {
-                onProductClickListener?.onProductClick(product)
+                productEventListener?.onProductClick(product)
+            }
+            if (product.isFavorite)
+                favoriteBtn.setImageResource(R.drawable.ic_favorite_fill)
+            else
+                favoriteBtn.setImageResource(R.drawable.ic_favorites)
+
+            favoriteBtn.setOnClickListener {
+                productEventListener?.onFavouriteBtnClick(product)
+
+                product.isFavorite = !product.isFavorite
+                notifyItemChanged(adapterPosition)      //*yani in item taghir karde *//*
             }
         }
     }
@@ -72,8 +85,9 @@ class ProductListAdapter(
 
     override fun getItemCount(): Int = products.size
 
-    interface OnProductClickListener {
+    interface ProductEventListener {
         fun onProductClick(product: Product)
+        fun onFavouriteBtnClick(product: Product)
     }
 }
 

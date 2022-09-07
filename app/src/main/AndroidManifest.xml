@@ -35,6 +35,9 @@
             android:name=".feature.product.comment.CommentListActivity"
             android:exported="false" />
         <activity
+            android:name=".feature.favourite.FavouriteProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".feature.product.ProductDetailActivity"
             android:exported="false" />
         <activity

@@ -3,6 +3,8 @@ package com.example.nikestoreproject
 import android.app.Application
 import android.content.SharedPreferences
 import android.os.Bundle
+import androidx.room.Room
+import com.example.nikestoreproject.data.db.AppDatabase
 import com.example.nikestoreproject.data.repo.*
 import com.example.nikestoreproject.data.repo.order.OrderDataSource
 import com.example.nikestoreproject.data.repo.order.OrderRemoteDataSource
@@ -14,6 +16,8 @@ import com.example.nikestoreproject.feature.auth.AuthViewModel
 import com.example.nikestoreproject.feature.cart.CartViewModel
 import com.example.nikestoreproject.feature.checkout.CheckoutViewModel
 import com.example.nikestoreproject.feature.common.ProductListAdapter
+import com.example.nikestoreproject.feature.favourite.FavoriteProductsViewModel
+import com.example.nikestoreproject.feature.favourite.FavouriteProductActivity
 import com.example.nikestoreproject.feature.list.ProductListViewModel
 import com.example.nikestoreproject.services.FrescoImageLoadingService
 import com.example.nikestoreproject.services.ImageLoadingService
@@ -43,10 +47,12 @@ class App : Application() {
         val myModules = module {
             single { createApiServiceInstance() }
             single<ImageLoadingService> { FrescoImageLoadingService() }
+            single { Room.databaseBuilder(this@App, AppDatabase::class.java, "db_app").build() }  /*b soorat e single database ro sakhtim.*/
             factory<ProductRepository> {
                 ProductRepositoryImpl(
                     ProductRemoteDataSource(get()),
-                    ProductLocalDataSource()
+                    get <AppDatabase>().productDao()                /* get <AppDatabase>(): appDatabase inject shod va ye instance azash barmigarde.
+                                                                        .productDao : az jense productLocalDataSource bod va dar ProductRepositoryImpl ham moalefeye dovom bayad productLocalDataSource mizashtim --> injoori inject shod .*/
                 )
             }
             factory { (viewType: Int) -> ProductListAdapter(viewType, get()) }
@@ -54,18 +60,8 @@ class App : Application() {
             factory<CommentRepository> { CommentRepositoryImpl(CommentRemoteDataSource(get())) }
             factory<CartRepository> { CartRepositoryImpl(CartRemoteDataSource(get())) }
 
-            single<SharedPreferences> {
-                this@App.getSharedPreferences(
-                    "app_settings",
-                    MODE_PRIVATE
-                )
-            }
-            single<UserRepository> {
-                UserRepositoryImpl(
-                    UserLocalDataSource(get()),
-                    UserRemoteDataSource(get())
-                )
-            }
+            single<SharedPreferences> { this@App.getSharedPreferences("app_settings", MODE_PRIVATE) }
+            single<UserRepository> { UserRepositoryImpl(UserLocalDataSource(get()), UserRemoteDataSource(get())) }
             single { UserLocalDataSource(get()) }
             single<OrderRepository> { OrderRepositoryImpl(OrderRemoteDataSource(get())) }
 
@@ -80,6 +76,7 @@ class App : Application() {
             viewModel { ShippingViewModel(get()) }
             viewModel { (orderId: Int) -> CheckoutViewModel(orderId, get()) }
             viewModel { ProfileViewModel(get()) }
+            viewModel { FavoriteProductsViewModel(get()) }
         }
 
         startKoin {

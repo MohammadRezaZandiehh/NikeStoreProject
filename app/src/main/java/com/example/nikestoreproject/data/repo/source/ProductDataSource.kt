@@ -6,7 +6,7 @@ import io.reactivex.Single
 
 interface ProductDataSource {
 
-    fun getProducts(sort:Int): Single<List<Product>>
+/*    fun getProducts(sort:Int): Single<List<Product>>
 
     suspend fun getProducts2(sort:Int): List<Product>
 
@@ -14,7 +14,17 @@ interface ProductDataSource {
 
     fun addToFavourite (product: Product): Completable
 
-    fun deleteFromFavourite(product: Product): Completable
+    fun deleteFromFavourite(product: Product): Completable*/
+
+    fun getProducts(sort: Int): Single<List<Product>>
+
+    suspend fun getProducts2(sort: Int): List<Product>
+
+    fun getFavoriteProducts(): Single<List<Product>>
+
+    fun addToFavorites(product: Product): Completable
+
+    fun deleteFromFavorites(product: Product): Completable
 }
 
 /*

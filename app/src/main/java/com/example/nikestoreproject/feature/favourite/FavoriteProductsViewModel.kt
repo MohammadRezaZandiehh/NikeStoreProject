@@ -15,7 +15,7 @@ class FavoriteProductsViewModel(private val productRepository: ProductRepository
     val productsLiveData = MutableLiveData<List<Product>>()
 
     init {
-        productRepository.getFavourite()
+        productRepository.getFavoriteProducts()
             .subscribeOn(Schedulers.io())
             .subscribe(object : NikeSingleObserver<List<Product>>(compositeDisposable) {
                 override fun onSuccess(t: List<Product>) {
@@ -25,7 +25,7 @@ class FavoriteProductsViewModel(private val productRepository: ProductRepository
     }
 
     fun removeFromFavorites(product: Product) {
-        productRepository.deleteFromFavourite(product)
+        productRepository.deleteFromFavorites(product)
             .subscribeOn(Schedulers.io())
             .subscribe(object : NikeCompletableObserver(compositeDisposable) {
                 override fun onComplete() {
