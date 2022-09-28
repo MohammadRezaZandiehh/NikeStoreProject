@@ -3,6 +3,7 @@ package com.example.nikestoreproject.common
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import org.greenrobot.eventbus.EventBus
 import timber.log.Timber
 
 abstract class NikeSingleObserver<T>(val compositeDisposable: CompositeDisposable) : SingleObserver<T> {
@@ -11,6 +12,7 @@ abstract class NikeSingleObserver<T>(val compositeDisposable: CompositeDisposabl
     }
 
     override fun onError(e: Throwable) {
+        EventBus.getDefault().post(NikeExceptionMapper.map(e))
         Timber.e(e)
     }
 }

@@ -108,9 +108,7 @@ class ProductDetailActivity : NikeActivity() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(object : NikeCompletableObserver(compositeDisposable) {
                         override fun onComplete() {
-                            Snackbar.make(rootView as CoordinatorLayout, "به سبد خرید اضافه شد", Snackbar.LENGTH_SHORT)
-                                .show()
-
+                            showSnackBar(getString(R.string.success_addToCard))
                         }
 
                     })
