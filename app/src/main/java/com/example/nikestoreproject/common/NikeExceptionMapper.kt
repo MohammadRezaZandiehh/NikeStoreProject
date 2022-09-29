@@ -13,11 +13,8 @@ class NikeExceptionMapper {
             if (throwable is HttpException) {
                 try {
                     val errorJsonObject = JSONObject(throwable.response()?.errorBody()!!.string())
-                    val errorMessage = errorJsonObject.getString("message")                   // we get message that has been sent from server
-                    return NikeException(
-                        if (throwable.code() == 401) NikeException.Type.AUTH else NikeException.Type.SIMPLE,
-                        serverMessage = errorMessage
-                    )
+                    val errorMessage=errorJsonObject.getString("message")
+                    return NikeException(if (throwable.code()==401) NikeException.Type.AUTH else NikeException.Type.SIMPLE,serverMessage = errorMessage)                  // we get message that has been sent from server
                 } catch (exception: Exception) {
                     Timber.e(exception)
                 }
