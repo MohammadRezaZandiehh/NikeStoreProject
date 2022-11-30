@@ -5,9 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.nikestoreproject.common.NikeCompletableObserver
 import com.example.nikestoreproject.common.NikeSingleObserver
 import com.example.nikestoreproject.common.asyncNetworkRequest
-import com.example.nikestoreproject.data.*
-import com.example.nikestoreproject.data.repo.BannerRepository
-import com.example.nikestoreproject.data.repo.ProductRepository
+import com.example.nikestoreproject.data.repo.banner.BannerRepository
+import com.example.nikestoreproject.data.repo.product.ProductRepository
 import com.example.nikestoreproject.common.NikeViewModel
 import com.example.nikestoreproject.data.model.Banner
 import com.example.nikestoreproject.data.model.Product

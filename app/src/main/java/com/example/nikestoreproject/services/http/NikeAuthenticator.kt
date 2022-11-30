@@ -2,9 +2,9 @@ package com.example.nikestoreproject.services.http
 
 import com.example.nikestoreproject.data.TokenResponse
 import com.example.nikestoreproject.data.TokenContainer
-import com.example.nikestoreproject.data.repo.source.CLIENT_ID
-import com.example.nikestoreproject.data.repo.source.CLIENT_SECRET
-import com.example.nikestoreproject.data.repo.source.UserDataSource
+import com.example.nikestoreproject.data.repo.user.ds.CLIENT_ID
+import com.example.nikestoreproject.data.repo.user.ds.CLIENT_SECRET
+import com.example.nikestoreproject.data.repo.user.ds.UserDataSource
 import com.google.gson.JsonObject
 import okhttp3.Authenticator
 import okhttp3.Request

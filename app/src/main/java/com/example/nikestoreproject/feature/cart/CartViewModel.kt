@@ -5,7 +5,7 @@ import com.example.nikestoreproject.R
 import com.example.nikestoreproject.common.NikeSingleObserver
 import com.example.nikestoreproject.common.asyncNetworkRequest
 import com.example.nikestoreproject.data.*
-import com.example.nikestoreproject.data.repo.CartRepository
+import com.example.nikestoreproject.data.repo.cart.CartRepository
 import com.example.nikestoreproject.common.NikeViewModel
 import com.example.nikestoreproject.data.model.*
 import io.reactivex.Completable

@@ -1,4 +1,4 @@
-package com.example.nikestoreproject.data.repo
+package com.example.nikestoreproject.data.repo.user
 
 import io.reactivex.Completable
 

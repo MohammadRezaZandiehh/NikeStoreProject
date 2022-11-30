@@ -1,4 +1,4 @@
-package com.example.nikestoreproject.data.repo
+package com.example.nikestoreproject.data.repo.banner
 
 import com.example.nikestoreproject.data.model.Banner
 import io.reactivex.Single

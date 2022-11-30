@@ -1,9 +1,8 @@
-package com.example.nikestoreproject.data.repo
+package com.example.nikestoreproject.data.repo.product
 
 import com.example.nikestoreproject.data.model.Product
-import com.example.nikestoreproject.data.repo.source.ProductDataSource
-import com.example.nikestoreproject.data.repo.source.ProductLocalDataSource
-import com.example.nikestoreproject.services.http.ApiService
+import com.example.nikestoreproject.data.repo.product.ds.ProductDataSource
+import com.example.nikestoreproject.data.repo.product.ds.ProductLocalDataSource
 import io.reactivex.Completable
 import io.reactivex.Single
 

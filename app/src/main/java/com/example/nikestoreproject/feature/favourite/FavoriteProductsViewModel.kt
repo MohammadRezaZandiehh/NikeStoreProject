@@ -5,7 +5,7 @@ import com.example.nikestoreproject.common.NikeCompletableObserver
 import com.example.nikestoreproject.common.NikeSingleObserver
 import com.example.nikestoreproject.common.NikeViewModel
 import com.example.nikestoreproject.data.model.Product
-import com.example.nikestoreproject.data.repo.ProductRepository
+import com.example.nikestoreproject.data.repo.product.ProductRepository
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 

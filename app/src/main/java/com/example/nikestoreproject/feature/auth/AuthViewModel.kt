@@ -1,6 +1,6 @@
 package com.example.nikestoreproject.feature.auth
 
-import com.example.nikestoreproject.data.repo.UserRepository
+import com.example.nikestoreproject.data.repo.user.UserRepository
 import com.example.nikestoreproject.common.NikeViewModel
 import io.reactivex.Completable
 

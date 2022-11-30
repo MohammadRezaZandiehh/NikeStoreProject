@@ -1,8 +1,8 @@
-package com.example.nikestoreproject.data.repo
+package com.example.nikestoreproject.data.repo.user
 
 import com.example.nikestoreproject.data.TokenContainer
 import com.example.nikestoreproject.data.TokenResponse
-import com.example.nikestoreproject.data.repo.source.UserDataSource
+import com.example.nikestoreproject.data.repo.user.ds.UserDataSource
 import io.reactivex.Completable
 
 

@@ -1,10 +1,10 @@
-package com.example.nikestoreproject.data.repo
+package com.example.nikestoreproject.data.repo.cart
 
 import com.example.nikestoreproject.data.model.AddToCartResponse
-import com.example.nikestoreproject.data.repo.source.CartDataSource
 import com.example.nikestoreproject.data.model.CartItemCount
 import com.example.nikestoreproject.data.model.CartResponse
 import com.example.nikestoreproject.data.model.MessageResponse
+import com.example.nikestoreproject.data.repo.cart.ds.CartDataSource
 import io.reactivex.Single
 
 class CartRepositoryImpl(val cartDataSource: CartDataSource): CartRepository {

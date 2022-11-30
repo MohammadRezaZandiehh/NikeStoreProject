@@ -1,4 +1,4 @@
-package com.example.nikestoreproject.data.repo.source
+package com.example.nikestoreproject.data.repo.user.ds
 
 import android.content.SharedPreferences
 import com.example.nikestoreproject.data.model.MessageResponse
@@ -6,7 +6,7 @@ import com.example.nikestoreproject.data.TokenResponse
 import com.example.nikestoreproject.data.TokenContainer
 import io.reactivex.Single
 
-class UserLocalDataSource (val sharedPreferences: SharedPreferences): UserDataSource{
+class UserLocalDataSource (val sharedPreferences: SharedPreferences): UserDataSource {
     override fun login(username: String, password: String): Single<TokenResponse> {
         TODO("Not yet implemented")
     }

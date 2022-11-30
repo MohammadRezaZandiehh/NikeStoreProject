@@ -2,7 +2,7 @@ package com.example.nikestoreproject.feature.profile
 
 import com.example.nikestoreproject.common.NikeViewModel
 import com.example.nikestoreproject.data.TokenContainer
-import com.example.nikestoreproject.data.repo.UserRepository
+import com.example.nikestoreproject.data.repo.user.UserRepository
 
 class ProfileViewModel(val userRepository: UserRepository): NikeViewModel() {
     val username: String

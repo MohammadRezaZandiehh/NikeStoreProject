@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.nikestoreproject.common.NikeSingleObserver
 import com.example.nikestoreproject.common.asyncNetworkRequest
 import com.example.nikestoreproject.data.model.Comment
-import com.example.nikestoreproject.data.repo.CommentRepository
+import com.example.nikestoreproject.data.repo.comment.CommentRepository
 import com.example.nikestoreproject.common.NikeViewModel
 
 

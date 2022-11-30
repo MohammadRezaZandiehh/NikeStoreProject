@@ -1,10 +1,10 @@
-package com.example.nikestoreproject.data.repo.source
+package com.example.nikestoreproject.data.repo.comment
 
 import com.example.nikestoreproject.data.model.Comment
 import io.reactivex.Single
 
 
-interface CommentDataSource {
+interface CommentRepository {
 
     fun getAll(productId: Int): Single<List<Comment>>
 

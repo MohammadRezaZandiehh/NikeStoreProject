@@ -3,7 +3,7 @@ package com.example.nikestoreproject.feature.main
 import com.example.nikestoreproject.common.NikeSingleObserver
 import com.example.nikestoreproject.data.model.CartItemCount
 import com.example.nikestoreproject.data.TokenContainer
-import com.example.nikestoreproject.data.repo.CartRepository
+import com.example.nikestoreproject.data.repo.cart.CartRepository
 import com.example.nikestoreproject.common.NikeViewModel
 import io.reactivex.schedulers.Schedulers
 import org.greenrobot.eventbus.EventBus
